@@ -4,7 +4,6 @@ import jwt from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
 
 export const login = async (req: Request, res: Response) => {
-  // TODO: If the user exists and the password is correct, return a JWT token
   // Destructure the username and password from the request body (the data sent by the client on the form submission)
   const { username, password } = req.body;
 
