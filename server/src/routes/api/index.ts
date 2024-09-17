@@ -1,10 +1,10 @@
 import { Router } from 'express';
-import { investmentRouter } from './investment-routes.js';
-import { travelRouter } from './travel-routes.js';
+import { expenseRouter } from './expense-routes';
+import { userRouter } from './user-routes';
 
 const router = Router();
 
-router.use('/investment', investmentRouter);
-router.use('/travel', travelRouter);
+router.use('/expenses', expenseRouter);
+router.use('/users', userRouter);
 
 export default router;
