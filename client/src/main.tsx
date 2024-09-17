@@ -6,9 +6,11 @@ import App from './App.tsx';
 import ErrorPage from './pages/ErrorPage.tsx';
 
 // Our Pages
-import Login Page from './pages/LoginPage.tsx';
-
-
+import Cashflow from './pages/Cashflow.tsx';
+import Investment from './pages/Investment.tsx';
+import Travel from './pages/Travel.tsx';
+import About from './pages/AboutPage.tsx';
+import Login from './pages/Login.tsx';
 
 const router = createBrowserRouter([
   {
@@ -18,7 +20,23 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <LoginPage />
+        element: <Cashflow />
+      },
+      {
+        path: '/investment',
+        element: <Investment />
+      },
+      {
+        path: '/travel',
+        element: <Travel />
+      },
+      {
+        path: '/about',
+        element: <About />
+      },
+      {
+        path: '/login',
+        element: <Login />
       }
     ]
   }
