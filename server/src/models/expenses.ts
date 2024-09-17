@@ -46,7 +46,7 @@ export function ExpenseFactory(sequelize: Sequelize): typeof Expense {
                 allowNull: false,
             },
             date: {
-                type: DataTypes.DATE, // check only date - not time and date
+                type: DataTypes.DATEONLY,
                 allowNull: false,
                 validate: {
                     isDate: true,}
