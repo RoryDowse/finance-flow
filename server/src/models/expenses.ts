@@ -7,7 +7,7 @@ interface ExpenseAttributes {
     description?: string;
     priority: 'High' | 'Medium' | 'Low';
     date: Date;
-    userId: string; // UUID
+    assignedUserId: string; // UUID
 }
 
 interface ExpenseCreationAttributes extends Optional<ExpenseAttributes, 'id'> {}
@@ -18,7 +18,7 @@ export class Expense extends Model<ExpenseAttributes, ExpenseCreationAttributes>
     public description?: string;
     public priority!: 'High' | 'Medium' | 'Low';
     public date!: Date;
-    public userId!: string;
+    public assignedUserId!: string;
 }
 
 export function ExpenseFactory(sequelize: Sequelize): typeof Expense {
@@ -51,7 +51,7 @@ export function ExpenseFactory(sequelize: Sequelize): typeof Expense {
                 validate: {
                     isDate: true,}
             },
-            userId: {
+            assignedUserId: {
                 type: DataTypes.UUID,
                 allowNull: false,
                 references: {

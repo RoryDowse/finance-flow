@@ -4,7 +4,7 @@ import { User } from './user';
 interface IncomeAttributes {
     id: string; // UUID
     amount: number;
-    userId: string; // UUID
+    assignedUserId: string; // UUID
 }
 
 interface IncomeCreationAttributes extends Optional<IncomeAttributes, 'id'> {}
@@ -12,7 +12,7 @@ interface IncomeCreationAttributes extends Optional<IncomeAttributes, 'id'> {}
 export class Income extends Model<IncomeAttributes, IncomeCreationAttributes> implements IncomeAttributes {
     public id!: string;
     public amount!: number;
-    public userId!: string;
+    public assignedUserId!: string;
 }
 
 export function IncomeFactory(sequelize: Sequelize): typeof Income {
@@ -31,7 +31,7 @@ export function IncomeFactory(sequelize: Sequelize): typeof Income {
                     min: 0.01,
                 }
             },
-            userId: {
+            assignedUserId: {
                 type: DataTypes.UUID,
                 allowNull: false,
                 references: {

@@ -1,17 +1,17 @@
 import express from 'express';
 import {
     getAllExpenses,
-    getExpense,
-    addExpense,
+    getExpenseById,
+    createExpense,
     updateExpense,
     deleteExpense
-} from '../../controllers/expense-controller.js';
+} from '../../controllers/expenses-controller';
 
 const router = express.Router();
 
 router.get('/', getAllExpenses);
-router.get('/:id', getExpense);
-router.post('/', addExpense);
+router.get('/:id', getExpenseById);
+router.post('/', createExpense);
 router.put('/:id', updateExpense);
 router.delete('/:id', deleteExpense);
 
