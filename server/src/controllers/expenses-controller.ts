@@ -8,7 +8,7 @@ export const getAllExpenses = async (_req: Request, res: Response) => {
       include: [
         {
           model: User,
-          as: 'user', // This should match the alias defined in the association
+          as: 'assignedUser', // This should match the alias defined in the association
           attributes: ['username'], // Include only the username attribute
         },
       ],
@@ -26,7 +26,7 @@ export const getExpenseById = async (req: Request, res: Response) => {
       include: [
         {
           model: User,
-          as: 'user', // This should match the alias defined in the association
+          as: 'assignedUser', // This should match the alias defined in the association
           attributes: ['username'], // Include only the username attribute
         },
       ],
@@ -65,7 +65,7 @@ export const updateExpense = async (req: Request, res: Response) => {
       await expense.save();
       res.json(expense);
     } else {
-      res.status(404).json({ message: 'Ticket not found' });
+      res.status(404).json({ message: 'Expense not found' });
     }
   } catch (error: any) {
     res.status(400).json({ message: error.message });

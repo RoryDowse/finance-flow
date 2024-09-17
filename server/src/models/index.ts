@@ -20,10 +20,10 @@ const User = UserFactory(sequelize);
 const Income = IncomeFactory(sequelize);
 const Expense = ExpenseFactory(sequelize);
 
-User.hasMany(Income, { foreignKey: 'userId', as: 'incomes' });
-Income.belongsTo(User, { foreignKey: 'userId', as: 'user' });
+User.hasMany(Income, { foreignKey: 'assignedUserId', as: 'incomes' });
+Income.belongsTo(User, { foreignKey: 'assignedUserId', as: 'assignedUser' });
 
-User.hasMany(Expense, { foreignKey: 'userId', as: 'expenses' });
-Expense.belongsTo(User, { foreignKey: 'userId', as: 'user' });
+User.hasMany(Expense, { foreignKey: 'assignedUserId', as: 'expenses' });
+Expense.belongsTo(User, { foreignKey: 'assignedUserId', as: 'assignedUser' });
 
 export { sequelize, User, Income, Expense };

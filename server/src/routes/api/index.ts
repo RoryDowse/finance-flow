@@ -1,10 +1,14 @@
 import { Router } from 'express';
-import { expenseRouter } from './expense-routes';
 import { userRouter } from './user-routes';
+// import { incomeRouter } from './income-routes';
+import { expenseRouter } from './expense-routes';
+
 
 const router = Router();
 
-router.use('/expenses', expenseRouter);
 router.use('/users', userRouter);
+// router.use('/income', incomeRouter);
+router.use('/expenses', expenseRouter);
+
 
 export default router;
