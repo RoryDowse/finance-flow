@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import StockData from './interfaces/Stock.interface';
 import { Projection } from './interfaces/Projection.interface';
-
+import StockDisplay from '../components/StockDisplay';
+import InvestmentProjectionCard from '../components/InvestmentProjectionCard';
 
 // Get API Key and Base URL from environment variables
 const API_KEY = import.meta.env.VITE_API_KEY;
@@ -114,6 +115,13 @@ const handleTickerSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 };
 
+// Display today's date on StockDisplay card
+const displayDate = new Date().toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+  });
+
  // Render the component UI
 return (
   <section>
@@ -137,12 +145,14 @@ return (
     {projections.length > 0 && (
         <div>
             <h2>Investment Projections</h2>
+            <StockDisplay ticker={ticker} displayDate={displayDate} />
             {projections.map((projection) => (
-                <div key={projection.years}>
-                    <h3>{projection.years} Year Projection</h3>
-                    <p>Average Return: {projection.averageReturn?.toFixed(2)}%</p>
-                    <p>Total Value: ${projection.totalReturn?.toFixed(2)}</p>
-                </div>
+                <InvestmentProjectionCard
+                    key={projection.years}
+                    years={projection.years}
+                    averageReturn={projection.averageReturn}
+                    totalReturn={projection.totalReturn}
+                />
             ))}
         </div>
     )}

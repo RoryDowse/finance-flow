@@ -1,8 +1,9 @@
-import { sequelize } from '../config/connection.js';
 import dotenv from 'dotenv';
+dotenv.config({ path: './server/.env' });
+console.log('DB_NAME:', process.env.DB_NAME);
+console.log('Working directory:', process.cwd());
 
-dotenv.config();
-
+import { sequelize } from '../config/connection.js';
 import { UserFactory } from './user.js';
 import { IncomeFactory } from './income.js';
 import { ExpenseFactory } from './expenses.js';
