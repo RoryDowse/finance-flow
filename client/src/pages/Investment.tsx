@@ -3,9 +3,10 @@ import React, { useState, useEffect } from 'react';
 import StockData from './interfaces/Stock.interface';
 import { Projection } from './interfaces/Projection.interface';
 
+
 // import API key and base URL
-const API_KEY = 'demo';
-const BASE_URL = 'https://www.alphavantage.co/query';
+const API_KEY = import.meta.env.VITE_API_KEY;
+const BASE_URL = import.meta.env.VITE_BASE_URL;
 
 const Investment = () => {
 // add state variables: stockData, projections, isLoading, and error
@@ -121,7 +122,7 @@ return (
         onChange={handleTickerInputChange}
         placeholder="Enter ticker symbol"
         />
-        <button type="submit">Search</button>
+        {/* <button type="submit">Search</button> */}
     </form>
 
     {/* handle loading and error states */}
