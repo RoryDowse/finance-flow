@@ -6,7 +6,7 @@ import { expenseRouter } from './expense-routes';
 
 const router = Router();
 
-router.use('/users', userRouter);
+router.use('/user', userRouter);
 // router.use('/income', incomeRouter);
 router.use('/expenses', expenseRouter);
 

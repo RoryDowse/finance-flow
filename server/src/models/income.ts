@@ -1,26 +1,26 @@
 import { DataTypes, Sequelize, Model, Optional } from 'sequelize';
-import { User } from './user';
+import { User } from './user.js';
 
 interface IncomeAttributes {
-    id: string; // UUID
+    id: number; 
     amount: number;
-    assignedUserId: string; // UUID
+    assignedUserId: number; 
 }
 
 interface IncomeCreationAttributes extends Optional<IncomeAttributes, 'id'> {}
 
 export class Income extends Model<IncomeAttributes, IncomeCreationAttributes> implements IncomeAttributes {
-    public id!: string;
+    public id!: number;
     public amount!: number;
-    public assignedUserId!: string;
+    public assignedUserId!: number;
 }
 
 export function IncomeFactory(sequelize: Sequelize): typeof Income {
     Income.init(
         {
             id: {
-                type: DataTypes.UUID,
-                defaultValue: DataTypes.UUIDV4,
+                type: DataTypes.INTEGER,
+                autoIncrement: true,
                 primaryKey: true,
             },
             amount: {
@@ -32,7 +32,7 @@ export function IncomeFactory(sequelize: Sequelize): typeof Income {
                 }
             },
             assignedUserId: {
-                type: DataTypes.UUID,
+                type: DataTypes.INTEGER,
                 allowNull: false,
                 references: {
                     model: User,

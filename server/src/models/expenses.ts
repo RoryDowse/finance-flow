@@ -1,32 +1,32 @@
 import { DataTypes, Sequelize, Model, Optional } from 'sequelize';
-import { User } from './user';
+import { User } from './user.js';
 
 interface ExpenseAttributes {
-    id: string; // UUID
+    id: number; 
     amount: number;
     description?: string;
     priority: 'High' | 'Medium' | 'Low';
     date: Date;
-    assignedUserId: string; // UUID
+    assignedUserId: number; 
 }
 
 interface ExpenseCreationAttributes extends Optional<ExpenseAttributes, 'id'> {}
 
 export class Expense extends Model<ExpenseAttributes, ExpenseCreationAttributes> implements ExpenseAttributes {
-    public id!: string;
+    public id!: number;
     public amount!: number;
     public description?: string;
     public priority!: 'High' | 'Medium' | 'Low';
     public date!: Date;
-    public assignedUserId!: string;
+    public assignedUserId!: number;
 }
 
 export function ExpenseFactory(sequelize: Sequelize): typeof Expense {
     Expense.init(
         {
             id: {
-                type: DataTypes.UUID,
-                defaultValue: DataTypes.UUIDV4,
+                type: DataTypes.INTEGER,
+                autoIncrement: true,
                 primaryKey: true,
             },
             amount: {
@@ -52,7 +52,7 @@ export function ExpenseFactory(sequelize: Sequelize): typeof Expense {
                     isDate: true,}
             },
             assignedUserId: {
-                type: DataTypes.UUID,
+                type: DataTypes.INTEGER,
                 allowNull: false,
                 references: {
                     model: User,
