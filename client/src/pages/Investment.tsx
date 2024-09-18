@@ -4,6 +4,8 @@ import StockData from './interfaces/Stock.interface';
 import { Projection } from './interfaces/Projection.interface';
 
 // import API key and base URL
+const API_KEY = 'demo';
+const BASE_URL = 'https://www.alphavantage.co/query';
 
 const Investment = () => {
 // add state variables: stockData, projections, isLoading, and error
@@ -22,8 +24,8 @@ useEffect(() => {
         setIsLoading(true);
         setError(null);
         try {
-            // const response = await fetch(`${BASE_URL}?function=TIME_SERIES_DAILY&symbol=${ticker}&outputsize=full&apikey=${API_KEY}`);
-            const response = await fetch('https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=IBM&outputsize=full&apikey=demo');
+            const response = await fetch(`${BASE_URL}?function=TIME_SERIES_DAILY&symbol=${ticker}&outputsize=full&apikey=${API_KEY}`);
+            // const response = await fetch('https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=IBM&outputsize=full&apikey=demo');
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
@@ -94,12 +96,10 @@ const calculateProjections = () => {
 
 // Call function to fetch stock data
 useEffect(() => {
-    if (!stockData) {
     calculateProjections();
-    }
     console.log("stockData", stockData);
     console.log("projections", projections);
-}, []);
+}, [stockData]);
 
 // Input change handler
 const handleTickerInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
