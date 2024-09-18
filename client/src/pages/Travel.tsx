@@ -11,6 +11,7 @@ const Travel: React.FC = () => {
     const [convertedAmount, setConvertedAmount] = useState<number | undefined>(undefined);
     const [conversionRate, setConversionRate] = useState<number | null> (null);
     const [numberOfYears, setNumberOfYears] = useState<number>(1);
+    const [amountToConvert, setAmountToConvert] = useState<number>(defaultCashflow);
     const [error, setError] = useState<string | null>();
    
     const exchangeKey = import.meta.env.VITE_EXCHANGE_API_KEY;
@@ -25,32 +26,36 @@ const Travel: React.FC = () => {
             })
 
             if (!response.ok) {
-                throw new Error('invalid API response, check the network tab');
+                throw new Error('invalid API response, make sure you are setting the correct currency types in each field');
             }
 
 
             const data: Currency = await response.json();
+            const currencyRate: number = data.conversion_rates[conversionCurrency]
 
-            const rate = data.conversion_rates[currency];
 
-            if (!rate) {
-                throw new Error(`Invalid currency type: ${currency}`);
-            }
-            const amountToConvert = 10000; // This number will be the "Cashflow" from the expenses page
-            const converted = rate * amountToConvert;
+            setConversionRate(currencyRate);
+             // This number will be the "Cashflow" from the expenses page
+            const converted = currencyRate * amountToConvert;
 
             setConvertedAmount(converted);
 
         } catch (err) {
             console.log('an error occured when trying to fetch currency data', err);
-            setConvertedAmount(null);
+            setConvertedAmount(undefined);
+            setError('Failed to fetch currency data. Please check your input');
         }
     };
 
     // This function will take the number of years the user chooses and convert the numbers displayed for convertedAmount
-    const currencyPerYear = (numberOfYears: number) => {
-        const newConvertedAmount = numberOfYears * convertedAmount;
-        newCurrencyAmount(newConvertedAmount);
+    const currencyPerYear = (years: number) => {
+        if (conversionRate !== null) {
+            const newAmount = amountToConvert * years * conversionRate;
+            setNumberOfYears(years);
+            setConvertedAmount(newAmount);
+        } else {
+            setConvertedAmount(undefined);
+        }
     }
 
     // Handles the Search bar Input, setting Currency to be whatever they type.
@@ -93,10 +98,11 @@ const Travel: React.FC = () => {
                 />
                 <button type="submit">Search</button>
             </form>
+            {error && <p>{error}</p>}
             <div>
                 <h2>Currency Exchange Rates</h2>
                 <p>
-                    Your Cashflow Converted from USD to {currency} is {convertedAmount?.toFixed(2)} for {numberOfYears}
+                    Your Cashflow of {amountToConvert} Converted from {baseCurrency || "USD"} to {conversionCurrency || "EUR"} is {convertedAmount?.toFixed(2)} for {numberOfYears} year/years
                 </p>
             </div>
             <div>
@@ -108,5 +114,6 @@ const Travel: React.FC = () => {
         </section>
     );
 };
+
 
 export default Travel;
