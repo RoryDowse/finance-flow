@@ -3,7 +3,10 @@ import React, { useState, useEffect } from 'react';
 import StockData from './interfaces/Stock.interface';
 import { Projection } from './interfaces/Projection.interface';
 
+
 // import API key and base URL
+const API_KEY = import.meta.env.VITE_API_KEY;
+const BASE_URL = import.meta.env.VITE_BASE_URL;
 
 const Investment = () => {
 // add state variables: stockData, projections, isLoading, and error
@@ -22,8 +25,8 @@ useEffect(() => {
         setIsLoading(true);
         setError(null);
         try {
-            // const response = await fetch(`${BASE_URL}?function=TIME_SERIES_DAILY&symbol=${ticker}&outputsize=full&apikey=${API_KEY}`);
-            const response = await fetch('https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=IBM&outputsize=full&apikey=demo');
+            const response = await fetch(`${BASE_URL}?function=TIME_SERIES_DAILY&symbol=${ticker}&outputsize=full&apikey=${API_KEY}`);
+            // const response = await fetch('https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=IBM&outputsize=full&apikey=demo');
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
@@ -94,12 +97,10 @@ const calculateProjections = () => {
 
 // Call function to fetch stock data
 useEffect(() => {
-    if (!stockData) {
     calculateProjections();
-    }
     console.log("stockData", stockData);
     console.log("projections", projections);
-}, []);
+}, [stockData]);
 
 // Input change handler
 const handleTickerInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -121,7 +122,7 @@ return (
         onChange={handleTickerInputChange}
         placeholder="Enter ticker symbol"
         />
-        <button type="submit">Search</button>
+        {/* <button type="submit">Search</button> */}
     </form>
 
     {/* handle loading and error states */}
