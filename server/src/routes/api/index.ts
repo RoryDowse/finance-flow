@@ -1,6 +1,6 @@
 import { Router } from 'express';
-import { userRouter } from './user-routes';
-// import { incomeRouter } from './income-routes';
+import { userRouter } from './user-routes.js';
+// import { incomeRouter } from './income-routes.js';
 import { expenseRouter } from './expense-routes.js';
 
 

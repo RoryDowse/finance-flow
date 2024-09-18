@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
-import { Expense } from '../models/expenses';
-import { User } from '../models/user';
+import { Expense } from '../models/expenses.js';
+import { User } from '../models/user.js';
 
 export const getAllExpenses = async (_req: Request, res: Response) => {
   try {
