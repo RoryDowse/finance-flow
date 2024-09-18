@@ -10,6 +10,9 @@ const Navbar = () => {
         <Link to='/investment'>
         <h2>Investment</h2>
         </Link>
+        <Link to='/travel'>
+        <h2>Currency Exchange</h2>
+        </Link>
       </div>
     </div>
   )

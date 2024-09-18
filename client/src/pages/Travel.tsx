@@ -3,18 +3,26 @@ import React, { useState, useEffect } from 'react';
 import { Currency } from './interfaces/Currency.Interface.tsx';
 
 const Travel: React.FC = () => {
+
+    const defaultCashflow = 10000;
    
-    const [currency, setCurrency] = useState<string>('USD');
-    const [convertedAmount, setConvertedAmount] = useState<number>();
+    const [conversionCurrency, setConversionCurrency] = useState<string>('');
+    const [baseCurrency, setBaseCurrency] = useState<string>('');
+    const [convertedAmount, setConvertedAmount] = useState<number | undefined>(undefined);
+    const [conversionRate, setConversionRate] = useState<number | null> (null);
     const [numberOfYears, setNumberOfYears] = useState<number>(1);
+    const [error, setError] = useState<string | null>();
    
     const exchangeKey = import.meta.env.VITE_EXCHANGE_API_KEY;
 
 
-    const searchCurrencyType = async (currency: string) => {
+    const searchCurrencyType = async (baseCurrency: string) => {
         try {
-            const response = await fetch(`https://v6.exchangerate-api.com/v6/${exchangeKey}/latest/${currency}`)
-
+            const response = await fetch(`https://v6.exchangerate-api.com/v6/${exchangeKey}/latest/${baseCurrency}`, {
+                headers: {
+                    Authorization: `Bearer ${exchangeKey}`,
+                  },
+            })
 
             if (!response.ok) {
                 throw new Error('invalid API response, check the network tab');
@@ -45,26 +53,43 @@ const Travel: React.FC = () => {
         newCurrencyAmount(newConvertedAmount);
     }
 
-
     // Handles the Search bar Input, setting Currency to be whatever they type.
-    const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setCurrency(event.target.value.toUpperCase());
+    const handleBaseCurrencyInput = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setBaseCurrency(event.target.value.toUpperCase());
+    };
+
+    const handleConversionCurrencyInput = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setConversionCurrency(event.target.value.toUpperCase());
     };
 
     // Handles submission for search field
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        searchCurrencyType(currency);
+        if (!baseCurrency || !conversionCurrency) {
+            setError('Please provide both currencies.');
+            return;
+        } else if (baseCurrency && conversionCurrency) {
+            setError(null);
+        }
+        searchCurrencyType(baseCurrency);
     };
 
     return (
         <section>
             <form onSubmit={handleSubmit}>
+                <label>What is your Base Currency?</label>
                 <input
                 type="text"
-                value={currency}
-                onChange={handleInputChange}
-                placeholder="Enter Currency Type"
+                value={baseCurrency}
+                onChange={handleBaseCurrencyInput}
+                placeholder="USD"
+                />
+                <label>What Currency would you like to convert to?</label>
+                <input
+                type="text"
+                value={conversionCurrency}
+                onChange={handleConversionCurrencyInput}
+                placeholder="EUR"
                 />
                 <button type="submit">Search</button>
             </form>
