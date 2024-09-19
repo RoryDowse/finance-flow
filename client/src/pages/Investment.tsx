@@ -125,6 +125,8 @@ const displayDate = new Date().toLocaleDateString('en-US', {
  // Render the component UI
 return (
   <section>
+    <h2>Investment</h2>
+    <h3>Ticker Search:</h3>
     {/* Form to input stock ticker */}
     <form onSubmit={handleTickerSubmit}>
         <input 
@@ -144,8 +146,8 @@ return (
      {/* Display investment projections if available */}
     {projections.length > 0 && (
         <div>
-            <h2>Investment Projections</h2>
             <StockDisplay ticker={ticker} displayDate={displayDate} />
+            <h3>Investment Projections</h3>
             {projections.map((projection) => (
                 <InvestmentProjectionCard
                     key={projection.years}

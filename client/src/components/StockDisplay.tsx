@@ -5,8 +5,8 @@ interface StockDisplayProps {
 
 const StockDisplay = ({ ticker, displayDate }: StockDisplayProps) => {
     return (
-        <div className="stock-display">
-            <h3>{ticker !== null ? ticker : 'N/A'}</h3>
+        <div className="financial-item-display">
+            <h4>{ticker !== null ? ticker : 'N/A'}</h4>
             <p>{displayDate !== null ? displayDate : 'N/A'}</p>
         </div>
     );

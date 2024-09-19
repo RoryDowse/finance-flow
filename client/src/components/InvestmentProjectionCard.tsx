@@ -11,8 +11,8 @@ const InvestmentProjectionCard = ({ years, averageReturn, totalReturn }: Investm
         : 'N/A';
 
     return (
-        <div className="investment-projection-card">
-            <p>Year: {years !== null ? years : 'N/A'}</p>
+        <div className="projection-card">
+            <p>Year {years !== null ? years : 'N/A'}</p>
             <p>Average Annual Return: {averageReturn !== null ? averageReturn.toFixed(2) + '%' : 'N/A'}</p>
             <p>Total Return: {formattedTotalReturn}</p>
         </div>
