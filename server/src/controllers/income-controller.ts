@@ -85,3 +85,14 @@ export const deleteIncome = async (req: Request, res: Response) => {
     res.status(500).json({ message: error.message });
   }
 };
+
+export const getTotalIncome = async (_req: Request, res: Response) => {
+    try {
+      const income = await Income.findAll();
+      const totalIncome = income.reduce((total, income) => total + income.amount, 0);
+      res.json({ totalIncome });
+    } catch (error: any) {
+      res.status(500).json({ message: error.message });
+    }
+  };
+  

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import StockData from './interfaces/Stock.interface';
-import { Projection } from './interfaces/Projection.interface';
+import StockData from '../interfaces/StockInterface.tsx';
+import { Projection } from '../interfaces/ProjectionInterface';
 import StockDisplay from '../components/StockDisplay';
 import InvestmentProjectionCard from '../components/InvestmentProjectionCard';
 
