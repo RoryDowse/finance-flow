@@ -1,6 +1,6 @@
 import { Sequelize } from 'sequelize';
 
-export const sequelize = new Sequelize( {
+export const sequelize = new Sequelize('cashflow_db', 'postgres', 'new-password', {
     host: 'localhost',
     dialect: 'postgres',
     dialectOptions: {

@@ -4,6 +4,8 @@ import { User } from './user.js';
 interface IncomeAttributes {
     id: number; 
     amount: number;
+    description?: string;
+    date: Date;
     assignedUserId: number; 
 }
 
@@ -12,6 +14,8 @@ interface IncomeCreationAttributes extends Optional<IncomeAttributes, 'id'> {}
 export class Income extends Model<IncomeAttributes, IncomeCreationAttributes> implements IncomeAttributes {
     public id!: number;
     public amount!: number;
+    public description?: string;
+    public date!: Date;
     public assignedUserId!: number;
 }
 
@@ -30,6 +34,16 @@ export function IncomeFactory(sequelize: Sequelize): typeof Income {
                     isFloat: true,
                     min: 0.01,
                 }
+            },
+            description: {
+                type: DataTypes.STRING,
+                allowNull: true,
+            },
+            date: {
+                type: DataTypes.DATEONLY,
+                allowNull: false,
+                validate: {
+                    isDate: true,}
             },
             assignedUserId: {
                 type: DataTypes.INTEGER,
