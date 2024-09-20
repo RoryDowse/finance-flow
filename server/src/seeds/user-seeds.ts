@@ -11,5 +11,7 @@ export const seedUsers = async () => {
       password: 'hashedpassword2',
     },
     // Add more users here...
-  ]);
+  ],
+  { individualHooks: true}
+);
 };

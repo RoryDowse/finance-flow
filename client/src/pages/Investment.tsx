@@ -1,120 +1,133 @@
-
 import React, { useState, useEffect } from 'react';
-import StockData from './interfaces/Stock.interface';
-import { Projection } from './interfaces/Projection.interface';
+import StockData from '../interfaces/StockInterface.tsx';
+import { Projection } from '../interfaces/ProjectionInterface';
+import StockDisplay from '../components/StockDisplay';
+import InvestmentProjectionCard from '../components/InvestmentProjectionCard';
 
-
-// import API key and base URL
+// Get API Key and Base URL from environment variables
 const API_KEY = import.meta.env.VITE_API_KEY;
 const BASE_URL = import.meta.env.VITE_BASE_URL;
 
 const Investment = () => {
-// add state variables: stockData, projections, isLoading, and error
+// State variables: ticker, loading status, stock data, projections, and error message
+const [ticker, setTicker] = useState<string>('IBM'); // default ticker is IBM
+const [isLoading, setIsLoading] = useState<boolean>(false);
 const [stockData, setStockData] = useState<StockData | null>(null);
 const [projections, setProjections] = useState<Projection[]>([]);
-const [isLoading, setIsLoading] = useState<boolean>(false);
 const [error, setError] = useState<string | null>(null);
-const [ticker, setTicker] = useState<string>('IBM'); // default ticker is IBM
 
-
-// useEffect to fetch data from API
+// Fetch stock data from the API when the ticker changes
 useEffect(() => {
     if (!ticker) return;
 
-    const fetchStockData = async () => {
-        setIsLoading(true);
-        setError(null);
+    async function fetchStockData() {
+        setIsLoading(true); // Start loading
+        setError(null); // Clear any previous error
         try {
+            // Fetch stock data from API using ticker symbol and API key
             const response = await fetch(`${BASE_URL}?function=TIME_SERIES_DAILY&symbol=${ticker}&outputsize=full&apikey=${API_KEY}`);
-            // const response = await fetch('https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=IBM&outputsize=full&apikey=demo');
+            
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
 
             const data: StockData = await response.json();
 
+            // Check if the data is valid
             if (!data || !data['Time Series (Daily)']) {
-                throw new Error('Invalid data received from the API')
+                throw new Error('Invalid data received from the API');
             }
 
-            // store the response data in state
+            // Store the fetched stock data in state
             setStockData(data);
         } catch (err) {
-            // handle errors
+            // Set error message in case of a fetch failure
             setError(`Failed to fetch stock data: ${err instanceof Error ? err.message : 'Unknown error'}`);
         } finally {
-            setIsLoading(false);
+            setIsLoading(false); // Stop loading
         }
-    };
+    }
 
+    // Call the fetch function
     fetchStockData();
-}, [ticker]); // run only when ticker changes
+}, [ticker]); // Only run when the ticker state changes
 
-// create a function to calculate the projections
+// Function to calculate investment projections based on stock data
 const calculateProjections = () => {
     if (!stockData || !stockData["Time Series (Daily)"]) return;
 
-    // store yesterday's date in ISO format
+    // Get relevant dates: today, yesterday, 10 years ago
     const today = new Date();
     const yesterday = new Date(); // fetch today's date or use yesterday's date if close not available
     yesterday.setDate(today.getDate() - 1);
-    // store 10-year date in ISO format
     const tenYearsAgo = new Date(today);
     tenYearsAgo.setFullYear(today.getFullYear() - 10);
 
+    // Extract the dates in 'YYYY-MM-DD' format
     const todayDate = today.toISOString().split('T')[0];
     const yesterdayDate = yesterday.toISOString().split('T')[0];
     const tenYearsAgoDate = tenYearsAgo.toISOString().split('T')[0];
     
+    // Store closing prices for today, yesterday, and ten years ago
     const todayClose = parseFloat(stockData['Time Series (Daily)'][todayDate]?.['4. close'] || '0');
-    // store yesterdays's close price
     const yesterdayClose = parseFloat(stockData['Time Series (Daily)'][yesterdayDate]?.['4. close'] || '0');
-    // store 10-year's close price
     const tenYearsAgoClose = parseFloat(stockData['Time Series (Daily)'][tenYearsAgoDate]?.['4. close'] || '0');
 
-    // create backup if close not available
+    // Use yesterday's close price if today's data is unavailable
     const closePrice = todayClose || yesterdayClose;
 
+    // Return if close prices are invalid
     if (!closePrice || !tenYearsAgoClose) return;
 
-    // calculate average annual return
-    const averageAnnualReturn = (Math.pow(closePrice / tenYearsAgoClose, 1 / 10) -1) * 100; // CAGR calculation
+    // Calculate the average annual return over the past ten years (Compound Annual Growth Rate)
+    const averageAnnualReturn = (Math.pow(closePrice / tenYearsAgoClose, 1 / 10) -1) * 100;
 
-    // setup projections array with projection object for 1, 3, 5, 10 years
-    const initialInvestment = 10000; // replace with cashflow figure
-    // calculate projection array objects to pass to the investment projection cards (or calculate on rendering the cards)
+     // Assume an initial investment amount (to be adjusted later)
+    const initialInvestment = 10000; // Replace with cashflow figure
+
+    // Calculate projections for the next 1, 3, 5, and 10 years
     const projectionsArray = [1, 3, 5, 10].map(years => {
         const futureValue = parseFloat((initialInvestment * Math.pow(1 + averageAnnualReturn / 100, years)).toFixed(2));
         return {
-            years: years, // 'years' is the current item from the array [1, 3, 5, 10]
-            averageReturn: averageAnnualReturn,
-            totalReturn: futureValue
+            years: years, // Number of years
+            averageReturn: averageAnnualReturn, // Projected average annual return
+            totalReturn: futureValue // Projected total value after the specified number of years
         };
     });
-    // store projections in state
+    // Store projections in the state
     setProjections(projectionsArray);
 };
 
-// Call function to fetch stock data
+// Trigger the calculation of projections whenever stock data change
 useEffect(() => {
     calculateProjections();
-    console.log("stockData", stockData);
-    console.log("projections", projections);
-}, [stockData]);
+    console.log("stockData", stockData); // Log the stock data
+    console.log("projections", projections); // Log the projections
+}, [stockData]); // Run whenever stock data changes
 
-// Input change handler
+// Update ticker state on input change
 const handleTickerInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setTicker(event.target.value);
 };
 
-// Input change handler
+ // Prevent form submission from reloading the page
 const handleTickerSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 };
 
-// render (ticker search form); investment title card; map the investment projection cards
+// Display today's date on StockDisplay card
+const displayDate = new Date().toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+  });
+
+ // Render the component UI
 return (
   <section>
+    <h2>Investment</h2>
+    <h3>Ticker Search:</h3>
+    {/* Form to input stock ticker */}
     <form onSubmit={handleTickerSubmit}>
         <input 
         type="text"
@@ -122,6 +135,7 @@ return (
         onChange={handleTickerInputChange}
         placeholder="Enter ticker symbol"
         />
+        {/* Uncomment button if manual submission is desired */}
         {/* <button type="submit">Search</button> */}
     </form>
 
@@ -129,15 +143,18 @@ return (
     {isLoading && <p>Loading...</p>}
     {error && <p>{error}</p>}
 
+     {/* Display investment projections if available */}
     {projections.length > 0 && (
         <div>
-            <h2>Investment Projections</h2>
+            <StockDisplay ticker={ticker} displayDate={displayDate} />
+            <h3>Investment Projections</h3>
             {projections.map((projection) => (
-                <div key={projection.years}>
-                    <h3>{projection.years} Year Projection</h3>
-                    <p>Average Return: {projection.averageReturn?.toFixed(2)}%</p>
-                    <p>Total Value: ${projection.totalReturn?.toFixed(2)}</p>
-                </div>
+                <InvestmentProjectionCard
+                    key={projection.years}
+                    years={projection.years}
+                    averageReturn={projection.averageReturn}
+                    totalReturn={projection.totalReturn}
+                />
             ))}
         </div>
     )}
@@ -146,4 +163,3 @@ return (
 };
 
 export default Investment;
-// note: console.log at each step to check data for debugging
