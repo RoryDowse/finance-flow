@@ -1,4 +1,3 @@
-import { useNavigate } from 'react-router-dom'
 import { useState, FormEvent, ChangeEvent } from 'react';
 import { register } from '../api/authApi';
 import Auth from '../utils/auth';
