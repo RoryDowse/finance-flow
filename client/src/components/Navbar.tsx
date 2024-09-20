@@ -25,7 +25,6 @@ const Navbar = () => {
           !loginCheck ? (
             <div>
               <h1>Welcome to Finance Flow</h1>
-              <h2>Please Login</h2>
             </div>
           ) : (
             <div>

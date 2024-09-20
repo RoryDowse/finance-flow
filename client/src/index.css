@@ -45,3 +45,35 @@
   text-decoration: none;
 }
 
+.login-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: auto;
+  align-items: center;
+  padding: 10px;
+  font-size: 20px;
+  width: 16em;
+  height: 16em;
+  background-color: whitesmoke;
+  border: 1px black solid;
+  border-radius: 20px;
+}
+
+
+.login-form label {
+  margin: 2px;
+}
+
+
+.login-form button {
+  width: 80%;
+  font-size: 40;
+  background: limegreen;
+  color: black;
+  border-radius: 20px;
+}
+
+.login-form button:hover {
+  opacity: 80%;
+}

@@ -12,6 +12,7 @@ import Investment from './pages/Investment.tsx';
 import Travel from './pages/Travel.tsx';
 import About from './pages/AboutPage.tsx';
 import Login from './pages/Login.tsx';
+import CreateAccount from './pages/CreateAccountPage.tsx';
 
 const router = createBrowserRouter([
   {
@@ -42,6 +43,10 @@ const router = createBrowserRouter([
       {
         path: '/login',
         element: <Login />
+      },
+      {
+        path: '/create-account',
+        element: <CreateAccount />
       }
     ]
   }

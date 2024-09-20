@@ -4,7 +4,7 @@ import auth from '../utils/auth';
 
 
 const Cashflow = () => {
-  const [error, setError] = useState(false);
+  const [error, setError] = useState(false); // What would the Error be on this page?
   const [loginCheck, setLoginCheck] = useState(false);
 
   const checkLogin = () => {

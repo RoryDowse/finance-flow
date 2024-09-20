@@ -26,7 +26,7 @@ const Login: React.FC = () => {
         try {
           const data = await login(loginData);
           Auth.login(data.token);
-          navigate("/home")
+          // navigate("/home");
         } catch (err) {
           console.error('Failed to login', err);
         }
@@ -34,7 +34,7 @@ const Login: React.FC = () => {
      
     return (
         <div>
-            <div>
+            <div className="login-form">
                 <form onSubmit={handleSubmit}>
                     <label>Username</label>
                     <input

@@ -9,4 +9,5 @@ router.use('/auth', authRoutes);
 // Add authenticateToken to verify JWT token and to ensure that the user is authenticated before accessing the API routes
 router.use('/api', authenticateToken, apiRoutes);
 
+
 export default router;
