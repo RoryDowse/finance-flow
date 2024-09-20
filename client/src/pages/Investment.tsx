@@ -56,31 +56,66 @@ useEffect(() => {
 const calculateProjections = () => {
     if (!stockData || !stockData["Time Series (Daily)"]) return;
 
-    // Get relevant dates: today, yesterday, 10 years ago
+    // Get relevant dates
     const today = new Date();
     const yesterday = new Date(); // fetch today's date or use yesterday's date if close not available
     yesterday.setDate(today.getDate() - 1);
+    const twoDaysAgo = new Date();
+    twoDaysAgo.setDate(today.getDate() - 2);
+    const threeDaysAgo = new Date();
+    threeDaysAgo.setDate(today.getDate() - 3);
+    const fourDaysAgo = new Date();
+    fourDaysAgo.setDate(today.getDate() - 4);
+    
     const tenYearsAgo = new Date(today);
     tenYearsAgo.setFullYear(today.getFullYear() - 10);
+    const yesterdayTenYearsAgo = new Date(tenYearsAgo);
+    yesterdayTenYearsAgo.setDate(tenYearsAgo.getDate() - 1);
+    const twoDaysAgoTenYearsAgo = new Date(tenYearsAgo);
+    twoDaysAgoTenYearsAgo.setDate(tenYearsAgo.getDate() - 2);
+    const threeDaysAgoTenYearsAgo = new Date(tenYearsAgo);
+    threeDaysAgoTenYearsAgo.setDate(tenYearsAgo.getDate() - 3);
+    const fourDaysAgoTenYearsAgo = new Date(tenYearsAgo);
+    fourDaysAgoTenYearsAgo.setDate(tenYearsAgo.getDate() - 4);
 
     // Extract the dates in 'YYYY-MM-DD' format
     const todayDate = today.toISOString().split('T')[0];
     const yesterdayDate = yesterday.toISOString().split('T')[0];
+    const twoDaysAgoDate = twoDaysAgo.toISOString().split('T')[0];
+    const threeDaysAgoDate = threeDaysAgo.toISOString().split('T')[0];
+    const fourDaysAgoDate = fourDaysAgo.toISOString().split('T')[0];
+
     const tenYearsAgoDate = tenYearsAgo.toISOString().split('T')[0];
+    const yesterdayTenYearsAgoDate = yesterdayTenYearsAgo.toISOString().split('T')[0];
+    const twoDaysAgoTenYearsAgoDate = twoDaysAgoTenYearsAgo.toISOString().split('T')[0];
+    const threeDaysAgoTenYearsAgoDate = threeDaysAgoTenYearsAgo.toISOString().split('T')[0];
+    const fourDaysAgoTenYearsAgoDate = fourDaysAgoTenYearsAgo.toISOString().split('T')[0];
+
     
-    // Store closing prices for today, yesterday, and ten years ago
+    // Store closing prices
     const todayClose = parseFloat(stockData['Time Series (Daily)'][todayDate]?.['4. close'] || '0');
     const yesterdayClose = parseFloat(stockData['Time Series (Daily)'][yesterdayDate]?.['4. close'] || '0');
+    const twoDaysAgoClose = parseFloat(stockData['Time Series (Daily)'][twoDaysAgoDate]?.['4. close'] || '0');
+    const threeDaysAgoClose = parseFloat(stockData['Time Series (Daily)'][threeDaysAgoDate]?.['4. close'] || '0');
+    const fourDaysAgoClose = parseFloat(stockData['Time Series (Daily)'][fourDaysAgoDate]?.['4. close'] || '0');
+    
     const tenYearsAgoClose = parseFloat(stockData['Time Series (Daily)'][tenYearsAgoDate]?.['4. close'] || '0');
+    const yesterdayTenYearsAgoClose = parseFloat(stockData['Time Series (Daily)'][yesterdayTenYearsAgoDate]?.['4. close'] || '0');
+    const twoDaysAgoTenYearsAgoClose = parseFloat(stockData['Time Series (Daily)'][twoDaysAgoTenYearsAgoDate]?.['4. close'] || '0');
+    const threeDaysAgoTenYearsAgoClose = parseFloat(stockData['Time Series (Daily)'][threeDaysAgoTenYearsAgoDate]?.['4. close'] || '0');
+    const fourDaysAgoTenYearsAgoClose = parseFloat(stockData['Time Series (Daily)'][fourDaysAgoTenYearsAgoDate]?.['4. close'] || '0');
 
-    // Use yesterday's close price if today's data is unavailable
-    const closePrice = todayClose || yesterdayClose;
+    // Use backup close prices if today's data is unavailable
+    const recentClosePrice = todayClose || yesterdayClose || twoDaysAgoClose || threeDaysAgoClose || fourDaysAgoClose;
+    const recentTenYearsAgoClose = tenYearsAgoClose || yesterdayTenYearsAgoClose || twoDaysAgoTenYearsAgoClose || threeDaysAgoTenYearsAgoClose || fourDaysAgoTenYearsAgoClose;
 
-    // Return if close prices are invalid
-    if (!closePrice || !tenYearsAgoClose) return;
+    // Return if today's close prices are invalid
+    if (!recentClosePrice || !recentTenYearsAgoClose) {
+        console.log('Invalid close prices', recentClosePrice, recentTenYearsAgoClose);
+        return}
 
     // Calculate the average annual return over the past ten years (Compound Annual Growth Rate)
-    const averageAnnualReturn = (Math.pow(closePrice / tenYearsAgoClose, 1 / 10) -1) * 100;
+    const averageAnnualReturn = (Math.pow(recentClosePrice / recentTenYearsAgoClose, 1 / 10) -1) * 100;
 
      // Assume an initial investment amount (to be adjusted later)
     const initialInvestment = 10000; // Replace with cashflow figure
