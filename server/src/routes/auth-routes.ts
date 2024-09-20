@@ -24,8 +24,7 @@ export const login = async (req: Request, res: Response) => {
   }
 
   // Retrieve the secret key
-  const secretKey = '12345';
-  // const secretKey = process.env.JWT_SECRET_KEY || '';
+  const secretKey = process.env.JWT_SECRET_KEY || '';
 
   // Generate a JWT token
   {/* Username is the payload which will be encoded into the JWT
