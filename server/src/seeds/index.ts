@@ -1,7 +1,7 @@
 import { seedUsers } from './user-seeds.js';
 import { seedIncomes } from './income-seeds.js';
 import { seedExpenses } from './expense-seeds.js';
-import { sequelize } from '../models/index.js';
+import { sequelize } from '../config/connection.js';
 
 const seedAll = async (): Promise<void> => {
   try {

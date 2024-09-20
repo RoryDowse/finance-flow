@@ -8,6 +8,7 @@ import ErrorPage from './pages/ErrorPage.tsx';
 // Our Pages
 import LandingPage from './pages/LandingPage.tsx'
 import Cashflow from './pages/Cashflow.tsx';
+import Expenses from './pages/Expenses.tsx';
 import Investment from './pages/Investment.tsx';
 import Travel from './pages/Travel.tsx';
 import About from './pages/AboutPage.tsx';
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
       {
         path: '/home',
         element: <Cashflow />
+      },
+      {
+        path: '/expenses',
+        element: <Expenses />
       },
       {
         path: '/investment',

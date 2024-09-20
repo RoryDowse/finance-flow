@@ -1,8 +1,6 @@
 import { JwtPayload, jwtDecode } from 'jwt-decode';
 
-
 class AuthService {
-
   // Creates a new token variable that gets the JWT token if there is one, returns a boolean for whether or not the token is expired or active
   loggedIn() {
     const token = this.getToken();

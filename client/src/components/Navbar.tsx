@@ -34,13 +34,23 @@ const Navbar = () => {
                   <Link to='/home'>Home</Link>
                 </h2>
                 <h2>
+                  <Link to='/expenses'>
+                    <p>(Expenses)</p>
+                  </Link>
+                </h2>
+                <h2>
                   <Link to='/investment'>
                     <p>Investment</p>
                   </Link>
                 </h2>
                 <h2>
                   <Link to='/travel'>
-                  <p>Currency Exchange</p>
+                    <p>Currency Exchange</p>
+                  </Link>
+                </h2>
+                <h2>
+                  <Link to='/about'>
+                    <p>About</p>
                   </Link>
                 </h2>
               </ul>
@@ -50,7 +60,7 @@ const Navbar = () => {
         </ul>
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default Navbar;

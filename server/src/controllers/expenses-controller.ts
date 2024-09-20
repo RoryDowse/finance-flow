@@ -86,3 +86,13 @@ export const deleteExpense = async (req: Request, res: Response) => {
     res.status(500).json({ message: error.message });
   }
 };
+
+export const getTotalExpenses = async (_req: Request, res: Response) => {
+  try {
+    const expenses = await Expense.findAll();
+    const totalExpenses = expenses.reduce((total, expense) => total + expense.amount, 0);
+    res.json({ totalExpenses });
+  } catch (error: any) {
+    res.status(500).json({ message: error.message });
+  }
+};
