@@ -91,6 +91,8 @@ export const getTotalIncome = async (_req, res) => {
     try {
         const income = await Income.findAll();
         const totalIncome = income.reduce((total, income) => total + income.amount, 0);
+        console.log("totalIncomeRoute");
+        console.log(totalIncome);
         res.json({ totalIncome });
     }
     catch (error) {

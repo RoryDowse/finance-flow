@@ -86,10 +86,12 @@ export const deleteIncome = async (req: Request, res: Response) => {
   }
 };
 
-export const getTotalIncome = async (_req: Request, res: Response) => {
+export const getTotalIncome = async (_req: Request, res: Response) => { // should this be retrieveTotalIncome?
     try {
       const income = await Income.findAll();
       const totalIncome = income.reduce((total, income) => total + income.amount, 0);
+      console.log("totalIncomeRoute");
+      console.log(totalIncome);
       res.json({ totalIncome });
     } catch (error: any) {
       res.status(500).json({ message: error.message });

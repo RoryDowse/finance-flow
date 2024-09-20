@@ -1,5 +1,3 @@
-// interface requires promise (not necessary for fetch all incomes)
-// import { TotalIncomeData } from '../interfaces/TotalIncome';
 import Auth from '../utils/auth.ts';
 
 const retrieveTotalIncome = async () => {

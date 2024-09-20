@@ -33,7 +33,8 @@ useEffect(() => {
 const fetchTotalIncome = async () => {
     try {
         const data = await retrieveTotalIncome(); 
-        setTotalIncome(data);
+
+        setTotalIncome(data.totalIncome);
         console.log('Total Income:', data);
     } catch (err) {
         console.error('Error fetching total income:', err);
@@ -45,7 +46,7 @@ const fetchTotalIncome = async () => {
 const fetchTotalExpenses = async () => {
     try {
         const data = await retrieveTotalExpenses(); 
-        setTotalExpenses(data);
+        setTotalExpenses(data.totalExpenses);
         console.log('Total Expenses:', data);
     } catch (err) {
         console.error('Error fetching total expenses:', err);
@@ -74,14 +75,14 @@ console.log(error);
 //   if (error) {
 //     return <ErrorPage />;
 //   }
-
+console.log(typeof totalIncome);
 return (
     <div>
         <h1>Cashflow</h1>
         <h2>Total Income: ${totalIncome.toFixed(2)}</h2>
         <h2>Total Expenses: ${totalExpenses.toFixed(2)}</h2>
         <h2>Cashflow: ${cashflow.toFixed(2)}</h2>
-        </div>
+    </div>
     );
 };
 
