@@ -1,10 +1,9 @@
 import { Router, Request, Response } from 'express';
-import { User } from '../models/user.js';
+import { User } from '../models/index.js';
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
 
 export const login = async (req: Request, res: Response) => {
-  // TODO: If the user exists and the password is correct, return a JWT token
   // Destructure the username and password from the request body (the data sent by the client on the form submission)
   const { username, password } = req.body;
 
@@ -25,7 +24,8 @@ export const login = async (req: Request, res: Response) => {
   }
 
   // Retrieve the secret key
-  const secretKey = process.env.JWT_SECRET_KEY || '';
+  const secretKey = '12345';
+  // const secretKey = process.env.JWT_SECRET_KEY || '';
 
   // Generate a JWT token
   {/* Username is the payload which will be encoded into the JWT

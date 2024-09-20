@@ -5,11 +5,23 @@ const Navbar = () => {
     <div className="nav">
       <div className="nav-title">
         <Link to='/'>
-          <h2>Home Page</h2>
+          <p>Cashflow</p>
+        </Link>
+        <Link to='/expenses'>
+          <p>(Expenses)</p>
+        </Link>
+        <Link to='/investment'>
+          <p>Investment</p>
+        </Link>
+        <Link to='/travel'>
+          <p>Travel</p>
+        </Link>
+        <Link to='/about'>
+          <p>About</p>
         </Link>
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default Navbar;
