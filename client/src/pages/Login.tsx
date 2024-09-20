@@ -1,9 +1,12 @@
 import React, { useState, FormEvent, ChangeEvent } from "react";
+import { useNavigate } from 'react-router-dom'
 import Auth from '../utils/auth';
 import { login } from "../api/authApi";
 
 
 const Login: React.FC = () => {
+
+  const navigate = useNavigate();
 
     const [loginData, setLoginData] = useState({
         username: '',
@@ -23,6 +26,7 @@ const Login: React.FC = () => {
         try {
           const data = await login(loginData);
           Auth.login(data.token);
+          navigate("/home")
         } catch (err) {
           console.error('Failed to login', err);
         }
@@ -30,11 +34,9 @@ const Login: React.FC = () => {
      
     return (
         <div>
-            <h1>Login Page</h1>
             <div>
                 <form onSubmit={handleSubmit}>
-                    <h1>Login</h1>
-                    <label >Username</label>
+                    <label>Username</label>
                     <input
                     type='text'
                     name='username'

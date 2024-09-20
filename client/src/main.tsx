@@ -6,6 +6,7 @@ import App from './App.tsx';
 import ErrorPage from './pages/ErrorPage.tsx';
 
 // Our Pages
+import LandingPage from './pages/LandingPage.tsx'
 import Cashflow from './pages/Cashflow.tsx';
 import Investment from './pages/Investment.tsx';
 import Travel from './pages/Travel.tsx';
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
+        element: <LandingPage />
+      },
+      {
+        path: '/home',
         element: <Cashflow />
       },
       {
