@@ -3,7 +3,7 @@ const About = () => {
     return (
         <div>
             <h2 className="text-center">About</h2>
-            <p className="about-info">FinanceFlow helps users understand their cashflow in order to make informed decisions about investments and travel. Users can track their income and expenses, view financial projections, and analyze potential returns on stocks or currency exchanges. The app calculates users' cashflow and projects their potential returns using stock market and currency data, helping users prioritize their spending.</p>
+            <p className="about-info">FinanceFlow helps users better understand their cashflow, allowing them to prioritize expenses, boost cashflow, and make informed investment and travel decisions. The app provides users with the ability to view cashflow, access stock data, and check currency exchange rates. It calculates cashflow based on total income and expenses and projects potential returns using 10-year stock market data alongside current currency rates. The stock market data is derived from comparing today's close price with the close price from ten years ago to assess past performance. In cases where the exact close date is unavailable, the closest available date is used. Note that past performance is not indicative of future outcomes, and this app is intended for educational purposes only.</p>
         </div>
     );
 };
