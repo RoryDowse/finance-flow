@@ -1,6 +1,6 @@
 // src/components/Travel.tsx
 import React, { useState } from 'react';
-import { Currency } from './interfaces/Currency.Interface.tsx';
+import { Currency } from '../interfaces/CurrencyInterface';
 
 const Travel: React.FC = () => {
 

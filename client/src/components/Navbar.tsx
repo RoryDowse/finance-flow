@@ -18,47 +18,47 @@ const Navbar = () => {
   }, [loginCheck])
 
   return (
-    <div className="nav">
-      <div className="nav-title">
-        <ul>
-        {
-          !loginCheck ? (
+    <div>
+      {
+        !loginCheck ? (
+          <div>
+            <h1>Welcome to Finance Flow</h1> 
+          </div>
+        ) : (
+          <div className="navbar-container">
             <div>
-              <h1>Welcome to Finance Flow</h1>
+              <img src="" alt="financeflow-logo"></img>
             </div>
-          ) : (
-            <div>
-              <button type='button' onClick={() => {auth.logout();}}>Logout</button>
-              <ul>
-                <h2>
-                  <Link to='/home'>Home</Link>
-                </h2>
-                <h2>
-                  <Link to='/expenses'>
-                    <p>(Expenses)</p>
-                  </Link>
-                </h2>
-                <h2>
-                  <Link to='/investment'>
-                    <p>Investment</p>
-                  </Link>
-                </h2>
-                <h2>
-                  <Link to='/travel'>
-                    <p>Currency Exchange</p>
-                  </Link>
-                </h2>
-                <h2>
-                  <Link to='/about'>
-                    <p>About</p>
-                  </Link>
-                </h2>
-              </ul>
+            <div className="navbar-inner-container">
+              <h2>
+                <Link className="navbar-links" to='/home'>Home</Link>
+              </h2>
+              <h2>
+                <Link className="navbar-links" to='/expenses'>
+                  <p>(Expenses)</p>
+                </Link>
+              </h2>
+              <h2>
+                <Link className="navbar-links" to='/investment'>
+                  <p>Investment</p>
+                </Link>
+              </h2>
+              <h2>
+                <Link className="navbar-links" to='/travel'>
+                  <p>Currency Exchange</p>
+                </Link>
+              </h2>
+              <h2>
+                <Link className="navbar-links" to='/about'>
+                  <p>About</p>
+                </Link>
+              </h2>
             </div>
-          )
-        }
-        </ul>
-      </div>
+            
+            <button className="navbar-logout-button"type='button' onClick={() => {auth.logout();}}>Logout</button>
+          </div>
+        )
+      }
     </div>
   );
 };
