@@ -17,9 +17,7 @@ const [stockData, setStockData] = useState<StockData | null>(null);
 const [projections, setProjections] = useState<Projection[]>([]);
 const [error, setError] = useState<string | null>(null);
 
-const [recentCloseDate, setRecentCloseDate] = useState<string | null>(null);
 const [recentClosePrice, setRecentClosePrice] = useState<number | null>(null);
-const [recentTenYearsAgoDate, setRecentTenYearsAgoDate] = useState<string | null>(null);
 const [recentTenYearsAgoClose, setRecentTenYearsAgoClose] = useState<number | null>(null);
 
 
@@ -116,18 +114,12 @@ const calculateProjections = () => {
     const recentClosePrice = todayClose || yesterdayClose || twoDaysAgoClose || threeDaysAgoClose || fourDaysAgoClose;
     const recentTenYearsAgoClose = tenYearsAgoClose || yesterdayTenYearsAgoClose || twoDaysAgoTenYearsAgoClose || threeDaysAgoTenYearsAgoClose || fourDaysAgoTenYearsAgoClose;
 
-    // Use backup close dates if today's dates are unavailable
-    const recentCloseDate = todayDate || yesterdayDate || twoDaysAgoDate || threeDaysAgoDate || fourDaysAgoDate;
-    const recentTenYearsAgoDate = tenYearsAgoDate || yesterdayTenYearsAgoDate || twoDaysAgoTenYearsAgoDate || threeDaysAgoTenYearsAgoDate || fourDaysAgoTenYearsAgoDate;
-
     // Return if today's close prices are invalid
     if (!recentClosePrice || !recentTenYearsAgoClose) {
         console.log('Invalid close prices', recentClosePrice, recentTenYearsAgoClose);
         return}
 
-        setRecentCloseDate(recentCloseDate);
         setRecentClosePrice(recentClosePrice);
-        setRecentTenYearsAgoDate(recentTenYearsAgoDate);
         setRecentTenYearsAgoClose(recentTenYearsAgoClose);
     
 
@@ -194,9 +186,7 @@ const handleTickerSubmit = (event: React.FormEvent<HTMLFormElement>) => {
             <div>
               <StockDisplay 
               ticker={ticker} 
-              recentCloseDate={recentCloseDate}
               recentClosePrice={recentClosePrice}
-              recentTenYearsAgoDate={recentTenYearsAgoDate}
               recentTenYearsAgoClose={recentTenYearsAgoClose}
               />
               <div className="projection-container">
