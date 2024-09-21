@@ -127,7 +127,7 @@ const calculateProjections = () => {
     const averageAnnualReturn = (Math.pow(recentClosePrice / recentTenYearsAgoClose, 1 / 10) -1) * 100;
 
      // Assume an initial investment amount (to be adjusted later)
-    const initialInvestment = 10000; // Replace with cashflow figure
+    const initialInvestment = 6045; // Replace with cashflow figure
 
     // Calculate projections for the next 1, 3, 5, and 10 years
     const projectionsArray = [1, 3, 5, 10].map(years => {
@@ -171,7 +171,7 @@ const handleTickerSubmit = (event: React.FormEvent<HTMLFormElement>) => {
               type="text"
               value={ticker}
               onChange={handleTickerInputChange}
-              placeholder="Enter ticker symbol"
+              className="ticker-input"
             />
             {/* Uncomment button if manual submission is desired */}
             {/* <button type="submit">Search</button> */}
