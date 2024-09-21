@@ -17,6 +17,12 @@ const [stockData, setStockData] = useState<StockData | null>(null);
 const [projections, setProjections] = useState<Projection[]>([]);
 const [error, setError] = useState<string | null>(null);
 
+const [recentCloseDate, setRecentCloseDate] = useState<string | null>(null);
+const [recentClosePrice, setRecentClosePrice] = useState<number | null>(null);
+const [recentTenYearsAgoDate, setRecentTenYearsAgoDate] = useState<string | null>(null);
+const [recentTenYearsAgoClose, setRecentTenYearsAgoClose] = useState<number | null>(null);
+
+
 // Fetch stock data from the API when the ticker changes
 useEffect(() => {
     if (!ticker) return;
@@ -110,10 +116,20 @@ const calculateProjections = () => {
     const recentClosePrice = todayClose || yesterdayClose || twoDaysAgoClose || threeDaysAgoClose || fourDaysAgoClose;
     const recentTenYearsAgoClose = tenYearsAgoClose || yesterdayTenYearsAgoClose || twoDaysAgoTenYearsAgoClose || threeDaysAgoTenYearsAgoClose || fourDaysAgoTenYearsAgoClose;
 
+    // Use backup close dates if today's dates are unavailable
+    const recentCloseDate = todayDate || yesterdayDate || twoDaysAgoDate || threeDaysAgoDate || fourDaysAgoDate;
+    const recentTenYearsAgoDate = tenYearsAgoDate || yesterdayTenYearsAgoDate || twoDaysAgoTenYearsAgoDate || threeDaysAgoTenYearsAgoDate || fourDaysAgoTenYearsAgoDate;
+
     // Return if today's close prices are invalid
     if (!recentClosePrice || !recentTenYearsAgoClose) {
         console.log('Invalid close prices', recentClosePrice, recentTenYearsAgoClose);
         return}
+
+        setRecentCloseDate(recentCloseDate);
+        setRecentClosePrice(recentClosePrice);
+        setRecentTenYearsAgoDate(recentTenYearsAgoDate);
+        setRecentTenYearsAgoClose(recentTenYearsAgoClose);
+    
 
     // Calculate the average annual return over the past ten years (Compound Annual Growth Rate)
     const averageAnnualReturn = (Math.pow(recentClosePrice / recentTenYearsAgoClose, 1 / 10) -1) * 100;
@@ -151,20 +167,13 @@ const handleTickerSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 };
 
-// Display today's date on StockDisplay card
-const displayDate = new Date().toLocaleDateString('en-US', {
-    year: 'numeric',
-    month: '2-digit',
-    day: '2-digit',
-  });
-
  // Render the component UI
  return (
     <div className="investment-page">
       <h2 className="text-center">Investment</h2>
       <div className="content">
         <aside className="sidebar">
-          <h3>Ticker Search:</h3>
+          <h3 className="ticker-search-text">Ticker Search:</h3>
           <form onSubmit={handleTickerSubmit}>
             <input 
               type="text"
@@ -183,7 +192,13 @@ const displayDate = new Date().toLocaleDateString('en-US', {
   
           {projections.length > 0 && (
             <div>
-              <StockDisplay ticker={ticker} displayDate={displayDate} />
+              <StockDisplay 
+              ticker={ticker} 
+              recentCloseDate={recentCloseDate}
+              recentClosePrice={recentClosePrice}
+              recentTenYearsAgoDate={recentTenYearsAgoDate}
+              recentTenYearsAgoClose={recentTenYearsAgoClose}
+              />
               <div className="projection-container">
                 {projections.map((projection) => (
                   <InvestmentProjectionCard

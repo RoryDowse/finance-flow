@@ -16,6 +16,11 @@
   border-right: 1px solid #ccc; /* Optional: Add a border on the right to separate the sidebar */
 }
 
+.ticker-search-text {
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
 .main-content {
   flex-basis: 80%; /* Remaining space for the main content */
   padding: 20px;
