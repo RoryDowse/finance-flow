@@ -1,3 +1,5 @@
+import './InvestmentProjectionCard.css';
+
 interface InvestmentProjectionCardProps {
     years: number | null;
     averageReturn: number | null;
@@ -11,11 +13,14 @@ const InvestmentProjectionCard = ({ years, averageReturn, totalReturn }: Investm
         : 'N/A';
 
     return (
-        <div className="projection-card">
-            <p>Year {years !== null ? years : 'N/A'}</p>
-            <p>Average Annual Return: {averageReturn !== null ? averageReturn.toFixed(2) + '%' : 'N/A'}</p>
-            <p>Total Return: {formattedTotalReturn}</p>
-        </div>
+
+            <div className="projection-card">
+                <p className="projection-title">Year {years !== null ? years : 'N/A'}</p>
+                <p className="projection-average-return">Average Annual Return:</p>
+                <p>{averageReturn !== null ? averageReturn.toFixed(2) + '%' : 'N/A'}</p>
+                <p className="projection-total-return">Total Return:</p> 
+                <p>{formattedTotalReturn}</p>
+            </div>
     );
 };
 

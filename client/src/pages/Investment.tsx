@@ -3,6 +3,7 @@ import StockData from '../interfaces/StockInterface.tsx';
 import { Projection } from '../interfaces/ProjectionInterface';
 import StockDisplay from '../components/StockDisplay';
 import InvestmentProjectionCard from '../components/InvestmentProjectionCard';
+import './Investment.css';
 
 // Get API Key and Base URL from environment variables
 const API_KEY = import.meta.env.VITE_API_KEY;
@@ -158,43 +159,47 @@ const displayDate = new Date().toLocaleDateString('en-US', {
   });
 
  // Render the component UI
-return (
-  <section>
-    <h2>Investment</h2>
-    <h3>Ticker Search:</h3>
-    {/* Form to input stock ticker */}
-    <form onSubmit={handleTickerSubmit}>
-        <input 
-        type="text"
-        value={ticker}
-        onChange={handleTickerInputChange}
-        placeholder="Enter ticker symbol"
-        />
-        {/* Uncomment button if manual submission is desired */}
-        {/* <button type="submit">Search</button> */}
-    </form>
-
-    {/* handle loading and error states */}
-    {isLoading && <p>Loading...</p>}
-    {error && <p>{error}</p>}
-
-     {/* Display investment projections if available */}
-    {projections.length > 0 && (
-        <div>
-            <StockDisplay ticker={ticker} displayDate={displayDate} />
-            <h3>Investment Projections</h3>
-            {projections.map((projection) => (
-                <InvestmentProjectionCard
+ return (
+    <div className="investment-page">
+      <h2 className="text-center">Investment</h2>
+      <div className="content">
+        <aside className="sidebar">
+          <h3>Ticker Search:</h3>
+          <form onSubmit={handleTickerSubmit}>
+            <input 
+              type="text"
+              value={ticker}
+              onChange={handleTickerInputChange}
+              placeholder="Enter ticker symbol"
+            />
+            {/* Uncomment button if manual submission is desired */}
+            {/* <button type="submit">Search</button> */}
+          </form>
+        </aside>
+  
+        <section className="main-content">
+          {isLoading && <p>Loading...</p>}
+          {error && <p>{error}</p>}
+  
+          {projections.length > 0 && (
+            <div>
+              <StockDisplay ticker={ticker} displayDate={displayDate} />
+              <div className="projection-container">
+                {projections.map((projection) => (
+                  <InvestmentProjectionCard
                     key={projection.years}
                     years={projection.years}
                     averageReturn={projection.averageReturn}
                     totalReturn={projection.totalReturn}
-                />
-            ))}
-        </div>
-    )}
-    </section>
-);
+                  />
+                ))}
+              </div>
+            </div>
+          )}
+        </section>
+      </div>
+    </div>
+  );  
 };
 
 export default Investment;

@@ -1,3 +1,5 @@
+import './StockDisplay.css';
+
 interface StockDisplayProps {
     ticker: string;
     displayDate: string;
@@ -6,8 +8,8 @@ interface StockDisplayProps {
 const StockDisplay = ({ ticker, displayDate }: StockDisplayProps) => {
     return (
         <div className="financial-item-display">
-            <h4>{ticker !== null ? ticker : 'N/A'}</h4>
-            <p>{displayDate !== null ? displayDate : 'N/A'}</p>
+            <h4 className="ticker-display">{ticker !== null ? ticker : 'N/A'}</h4>
+            <p className="date-display">{displayDate !== null ? displayDate : 'N/A'}</p>
         </div>
     );
 };

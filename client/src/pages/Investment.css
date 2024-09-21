@@ -1,0 +1,30 @@
+.investment-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.content {
+  display: flex;
+  width: 100%; /* Full width for the content section */
+}
+
+.sidebar {
+  flex-basis: 20%; /* Set the width of the sidebar */
+  padding: 20px;
+  border-right: 1px solid #ccc; /* Optional: Add a border on the right to separate the sidebar */
+}
+
+.main-content {
+  flex-basis: 80%; /* Remaining space for the main content */
+  padding: 20px;
+}
+
+.projection-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
