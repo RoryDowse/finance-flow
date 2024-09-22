@@ -3,7 +3,8 @@ import './Footer.css';
 const Footer = () => {
     return (
         <div className="footer">
-            <p>Created by: Rory Dowse and Cameron Barfuss</p>
+            <p>Created By</p>
+            <p>Rory Dowse and Cameron Barfuss</p>
         </div>
       );
     };

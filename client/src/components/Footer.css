@@ -1,12 +1,10 @@
 /* Footer Styling */
 
 .footer {
-    width: 70%;
-    margin: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 20px;
-    background-color: white;
-    color: black;
-  }
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  font-size: 20px;
+}

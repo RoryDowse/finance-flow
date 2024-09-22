@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link, useNavigate } from "react-router-dom";
 import auth from '../utils/auth';
 import './Navbar.css';
+import Logo from '../assets/images/financeflow-logo.png'
 
 
 const Navbar = () => {
@@ -24,42 +25,51 @@ const Navbar = () => {
     <div>
       {
         !loginCheck ? (
-          <div>
-            <h1></h1> 
-          </div>
+          <div></div>
         ) : (
-          <div className="navbar-container">
-            <div>
-              <img src="" alt="financeflow-logo"></img>
+          <nav className="navbar navbar-expand-lg navbar-light bg-light">
+            <div className="container-fluid d-flex justify-content-between">
+              <Link className="navbar-brand" to="/home">
+                <img src={Logo} alt="financeflow-logo" className="navbar-logo navbar-financeflow-logo"></img>
+              </Link>
+              <button className="navbar-toggler" type="button" data-bs-toggle="collapse"  data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span className="navbar-toggler-icon"></span>
+              </button>
+              <div className="collapse navbar-collapse" id="navbarNav">
+                <ul className="navbar-nav">
+                <li className="nav-item">
+                    <Link className="nav-link" to='/home'>
+                      Home
+                    </Link>
+                  </li>
+                  {
+                  /* <li className="nav-item">
+                    <Link className="nav-link" to='/expenses'>
+                      Expenses
+                    </Link>
+                  </li> */ 
+                  
+                  /* Uncomment when expenses page is ready */}
+                  <li className="nav-item">
+                    <Link className="nav-link" to='/investment'>
+                      Investment
+                    </Link>
+                  </li>
+                  <li className="nav-item">
+                    <Link className="nav-link" to='/travel'>
+                      Currency Exchange
+                    </Link>
+                  </li>
+                  <li className="nav-item">
+                    <Link className="nav-link" to='/about'>
+                      About
+                    </Link>
+                  </li>
+                </ul>
+                <button className="btn btn-outline-danger ms-auto" type="button" onClick={() => {auth.logout();}}>Logout</button>
+              </div>
             </div>
-            <div className="navbar-inner-container">
-              <h2>
-                <Link className="navbar-links" to='/home'>Home</Link>
-              </h2>
-              <h2>
-                <Link className="navbar-links" to='/expenses'>
-                  <p>(Expenses)</p>
-                </Link>
-              </h2>
-              <h2>
-                <Link className="navbar-links" to='/investment'>
-                  <p>Investment</p>
-                </Link>
-              </h2>
-              <h2>
-                <Link className="navbar-links" to='/travel'>
-                  <p>Currency Exchange</p>
-                </Link>
-              </h2>
-              <h2>
-                <Link className="navbar-links" to='/about'>
-                  <p>About</p>
-                </Link>
-              </h2>
-            </div>
-            
-            <button className="navbar-logout-button"type='button' onClick={() => {auth.logout();}}>Logout</button>
-          </div>
+          </nav>
         )
       }
     </div>

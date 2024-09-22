@@ -19,8 +19,6 @@
 /* Page Styling */
 
 .page-styling {
-  width: 70%;
   margin: auto;
-  min-height: 100vh;
-  padding-left: 40px;
+  min-height: 80vh;
 }

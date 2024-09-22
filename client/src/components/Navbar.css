@@ -1,34 +1,6 @@
-/* Navbar Content */
-.navbar-container {
-    display: flex; 
-    width: 70%;                  
-    justify-content: space-evenly;  
-    align-items: center;            
-    background-color: #f8f8f8; 
-    margin: auto; 
-    box-sizing: border-box;  
-  }
-  
-  .navbar-inner-container {
-    display: flex;                 
-    justify-content: space-evenly;  
-    align-items: center;            
-    background-color: #f8f8f8;
-    width: 100%; 
-  }
-  
-  .navbar-logout-button {
-    width: 150px;
-    height: 40px;
-    border-radius: 10px;
-    background-color: lightgrey;
-    cursor: pointer;
-    font-size: 24px;
-    font-weight: 600;
-    margin: 0 0.5em;
-  }
-  
-  .navbar-links {
-    text-decoration: none;
-  }
-  
+/* Navbar Styling */
+
+.navbar-financeflow-logo {
+  width: 30px;
+  height: 30px;
+}
