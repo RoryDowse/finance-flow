@@ -2,6 +2,7 @@ import { useState, FormEvent, ChangeEvent } from 'react';
 import { register } from '../api/authAPI_temp';
 import Auth from '../utils/auth';
 import { Link } from 'react-router-dom';
+import './Form.css';
 
 const CreateAccount = () => {
  
@@ -31,7 +32,7 @@ const CreateAccount = () => {
         };
 
     return (
-        <div className="login-page">
+        <div className="form-page">
           <button className='back-button'><Link className="back-button-link" to='/'>Back</Link></button>
           <div className="form-container">
             <form className="base-form" onSubmit={handleSubmit}>
