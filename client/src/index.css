@@ -1,7 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&display=swap");
 
 :root {
-  font-family: 'Inter Tight', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: "Inter Tight", system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
   color-scheme: light dark;
@@ -13,10 +13,9 @@
 }
 
 /* webkit solution */
-::-webkit-input-placeholder { 
-  text-align:right; 
+::-webkit-input-placeholder {
+  text-align: right;
 }
-
 
 /* Navbar Content */
 .nav {
@@ -32,7 +31,7 @@
 }
 
 .nav-title a {
-  color: #B95F89;
+  color: #b95f89;
 }
 
 .nav-item {
@@ -46,3 +45,9 @@
   text-decoration: none;
 }
 
+h2 {
+  font-size: 40px;
+  font-weight: 700;
+  text-align: center;
+  margin: 40px 0 60px 0;
+}

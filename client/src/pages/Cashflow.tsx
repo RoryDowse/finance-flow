@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react';
 import { retrieveTotalIncome } from '../api/incomeAPI';
 import { retrieveTotalExpenses } from '../api/expensesAPI';
+import './Cashflow.css';
 // import ErrorPage from './ErrorPage';
 
 // import auth from './utils/auth';
@@ -76,12 +77,22 @@ console.log(error);
 //     return <ErrorPage />;
 //   }
 console.log(typeof totalIncome);
+
+const formatCurrency = (amount: number) => {
+    return `$${amount.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+};
+
 return (
     <div>
-        <h1>Cashflow</h1>
-        <h2>Total Income: ${totalIncome.toFixed(2)}</h2>
-        <h2>Total Expenses: ${totalExpenses.toFixed(2)}</h2>
-        <h2>Cashflow: ${cashflow.toFixed(2)}</h2>
+        <h2 className="text-center">Cashflow</h2>
+        <div className="cashflow-container">
+            <p className="total-income-title">Total Income:</p>
+            <p className="total-income">{formatCurrency(totalIncome)}</p>
+            <p className="total-expenses-title">Total Expenses:</p> 
+            <p className="total-expenses">{formatCurrency(totalExpenses)}</p>
+            <p className="cashflow-title">Cashflow:</p>
+            <p className="cashflow">{formatCurrency(cashflow)}</p>
+        </div>
     </div>
     );
 };

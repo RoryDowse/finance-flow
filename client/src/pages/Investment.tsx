@@ -3,6 +3,7 @@ import StockData from '../interfaces/StockInterface.tsx';
 import { Projection } from '../interfaces/ProjectionInterface';
 import StockDisplay from '../components/StockDisplay';
 import InvestmentProjectionCard from '../components/InvestmentProjectionCard';
+import './Investment.css';
 
 // Get API Key and Base URL from environment variables
 const API_KEY = import.meta.env.VITE_API_KEY;
@@ -15,6 +16,10 @@ const [isLoading, setIsLoading] = useState<boolean>(false);
 const [stockData, setStockData] = useState<StockData | null>(null);
 const [projections, setProjections] = useState<Projection[]>([]);
 const [error, setError] = useState<string | null>(null);
+
+const [recentClosePrice, setRecentClosePrice] = useState<number | null>(null);
+const [recentTenYearsAgoClose, setRecentTenYearsAgoClose] = useState<number | null>(null);
+
 
 // Fetch stock data from the API when the ticker changes
 useEffect(() => {
@@ -114,11 +119,15 @@ const calculateProjections = () => {
         console.log('Invalid close prices', recentClosePrice, recentTenYearsAgoClose);
         return}
 
+        setRecentClosePrice(recentClosePrice);
+        setRecentTenYearsAgoClose(recentTenYearsAgoClose);
+    
+
     // Calculate the average annual return over the past ten years (Compound Annual Growth Rate)
     const averageAnnualReturn = (Math.pow(recentClosePrice / recentTenYearsAgoClose, 1 / 10) -1) * 100;
 
      // Assume an initial investment amount (to be adjusted later)
-    const initialInvestment = 10000; // Replace with cashflow figure
+    const initialInvestment = 6045; // Replace with cashflow figure
 
     // Calculate projections for the next 1, 3, 5, and 10 years
     const projectionsArray = [1, 3, 5, 10].map(years => {
@@ -150,51 +159,52 @@ const handleTickerSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 };
 
-// Display today's date on StockDisplay card
-const displayDate = new Date().toLocaleDateString('en-US', {
-    year: 'numeric',
-    month: '2-digit',
-    day: '2-digit',
-  });
-
  // Render the component UI
-return (
-  <section>
-    <h2>Investment</h2>
-    <h3>Ticker Search:</h3>
-    {/* Form to input stock ticker */}
-    <form onSubmit={handleTickerSubmit}>
-        <input 
-        type="text"
-        value={ticker}
-        onChange={handleTickerInputChange}
-        placeholder="Enter ticker symbol"
-        />
-        {/* Uncomment button if manual submission is desired */}
-        {/* <button type="submit">Search</button> */}
-    </form>
-
-    {/* handle loading and error states */}
-    {isLoading && <p>Loading...</p>}
-    {error && <p>{error}</p>}
-
-     {/* Display investment projections if available */}
-    {projections.length > 0 && (
-        <div>
-            <StockDisplay ticker={ticker} displayDate={displayDate} />
-            <h3>Investment Projections</h3>
-            {projections.map((projection) => (
-                <InvestmentProjectionCard
+ return (
+    <div className="investment-page">
+      <h2 className="text-center">Investment</h2>
+      <div className="content">
+        <aside className="sidebar">
+          <h3 className="ticker-search-text text-center">Ticker Search:</h3>
+          <form onSubmit={handleTickerSubmit}>
+            <input 
+              type="text"
+              value={ticker}
+              onChange={handleTickerInputChange}
+              className="ticker-input"
+            />
+            {/* Uncomment button if manual submission is desired */}
+            {/* <button type="submit">Search</button> */}
+          </form>
+        </aside>
+  
+        <section className="main-content">
+          {isLoading && <p>Loading...</p>}
+          {error && <p>{error}</p>}
+  
+          {projections.length > 0 && (
+            <div>
+              <StockDisplay 
+              ticker={ticker} 
+              recentClosePrice={recentClosePrice}
+              recentTenYearsAgoClose={recentTenYearsAgoClose}
+              />
+              <div className="projection-container">
+                {projections.map((projection) => (
+                  <InvestmentProjectionCard
                     key={projection.years}
                     years={projection.years}
                     averageReturn={projection.averageReturn}
                     totalReturn={projection.totalReturn}
-                />
-            ))}
-        </div>
-    )}
-    </section>
-);
+                  />
+                ))}
+              </div>
+            </div>
+          )}
+        </section>
+      </div>
+    </div>
+  );  
 };
 
 export default Investment;
