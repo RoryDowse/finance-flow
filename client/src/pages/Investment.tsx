@@ -170,7 +170,7 @@ const handleTickerSubmit = (event: React.FormEvent<HTMLFormElement>) => {
               onChange={handleTickerInputChange}
               className="ticker-input"
             />
-            <button type="submit">Search</button>
+            <button className="submit-button" type="submit">Search</button>
           </form>
         </aside>
   
