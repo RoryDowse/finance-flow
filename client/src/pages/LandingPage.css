@@ -19,6 +19,64 @@
     height: 30vh;
   }
   
+  .lp-right-container {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+    width: 50%;
+  }
+
+  /* Button Styling */
+
+  button {
+    cursor: pointer;
+    border: none;
+    outline: none;
+    transition: all 0.3s ease;
+  }
+  
+
+  .login-button {
+    min-width: 200px;
+    padding: 12px 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    background-color: #007bff; /* Primary blue color */
+    box-shadow: 0px 4px 8px rgba(0, 123, 255, 0.4); /* Light shadow */
+  }
+
+  .login-button:hover {
+    background-color: #0056b3; /* Darker blue */
+    box-shadow: 0px 6px 12px rgba(0, 123, 255, 0.5); /* Stronger shadow */
+    transform: translateY(-2px); /* Slight lift */
+  }
+
+  .create-account-button {
+    min-width: 200px;
+    padding: 12px 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    background-color: #28a745; /* Success green color */
+    color: #fff; /* White text */
+    box-shadow: 0px 4px 8px rgba(40, 167, 69, 0.4); /* Light shadow */
+  }
+
+  .create-account-button:hover {
+    background-color: #218838; /* Darker green */
+    box-shadow: 0px 6px 12px rgba(40, 167, 69, 0.5); /* Stronger shadow */
+    transform: translateY(-2px); /* Slight lift */
+  }
+
+  .button {
+    color: white;
+    text-decoration: none;
+  }
+  
   .lp-left-container {
     display: flex;
     justify-content: space-evenly;
@@ -27,14 +85,6 @@
     width: 50%;
   }
   
-  .lp-right-container {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    flex-direction: column;
-    width: 50%;
-  }
-  
-  .lp-right-container p {
+  .lp-left-container p {
     font-size: 20px;
   }

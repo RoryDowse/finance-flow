@@ -125,7 +125,7 @@ const Travel: React.FC = () => {
                             onChange={handleCashflowInput}
                             className="exchange-input"
                         />
-                        <button className="search-bar" type="submit">Search</button>
+                        <button className="search-button" type="submit">Search</button>
                     </form>
                 </aside>
                 <section className="main-content">
