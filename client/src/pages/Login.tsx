@@ -1,6 +1,6 @@
 import React, { useState, FormEvent, ChangeEvent } from "react";
 import Auth from '../utils/auth';
-import { login } from "../api/authApi";
+import { login } from "../api/authAPI";
 import { Link } from "react-router-dom";
 
 
