@@ -1,3 +1,17 @@
+.description-1 {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.description-2 {
+  text-align: center;
+}
+
+.description-3 {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
 .cashflow-container {
   display: flex;
   flex-direction: column;
