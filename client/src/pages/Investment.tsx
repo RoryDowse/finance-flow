@@ -165,7 +165,7 @@ const handleTickerSubmit = (event: React.FormEvent<HTMLFormElement>) => {
       <h2 className="text-center">Investment</h2>
       <div className="content">
         <aside className="sidebar">
-          <h3 className="ticker-search-text">Ticker Search:</h3>
+          <h3 className="ticker-search-text text-center">Ticker Search:</h3>
           <form onSubmit={handleTickerSubmit}>
             <input 
               type="text"
