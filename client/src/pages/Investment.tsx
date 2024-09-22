@@ -160,7 +160,7 @@ const handleTickerSubmit = (event: React.FormEvent<HTMLFormElement>) => {
  return (
     <div className="investment-page">
       <h2 className="text-center">Investment</h2>
-      <p className="description-1">Enter a ticker symbol to get projections for the next 1, 3, 5, and 10 years based on your cashflow.</p>
+      <p className="description-1">Enter a ticker symbol to get projections for the next 1, 3, 5, and 10 years based on cashflow.</p>
       <p className="description-2">The projections are based on historical stock data from the past 10 years.</p>
       <p className="description-2">Past performance is not indicative of future outcomes.</p>
       <div className="content">

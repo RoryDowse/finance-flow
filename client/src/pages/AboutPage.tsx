@@ -52,10 +52,10 @@ const About = () => {
                 <p>Current currency exchange rates</p>
                 </div>
 
-                <p>
+                <div className="icon-text">
                 <i className="fas fa-exclamation-triangle"></i> 
                 <p className="description">Past performance is not indicative of future outcomes</p>
-            </p>
+                </div>
             </div>
         </div>
     );

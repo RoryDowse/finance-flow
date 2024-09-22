@@ -82,9 +82,9 @@ const Cashflow = () => {
       ) : (
         <div>
           <h2 className="text-center">Cashflow</h2>
-          <p className="description-1">Your cashflow is the calculated as the difference between your income and expenses.</p> 
-          <p className="description-2">Increase your income and minimize your expenses to increase cashflow.</p>
-          <p className="description-3">Use your cashflow figure to make investment and travel decisions.</p>
+          <p className="description-1">Cashflow is the difference between the total income and the total expenses.</p> 
+          <p className="description-2">Prioritize income and prioritize expenses to boost cashflow.</p>
+          <p className="description-3">Use cashflow to make investment and travel decisions.</p>
           <div className="cashflow-container">
             <p className="total-income-title">Total Income:</p>
             <p className="total-income">{formatCurrency(totalIncome)}</p>
