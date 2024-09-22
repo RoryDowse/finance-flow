@@ -3,7 +3,6 @@ import { register } from '../api/authApi';
 import Auth from '../utils/auth';
 import { Link } from 'react-router-dom';
 
-
 const CreateAccount = () => {
  
     const [newUserData, setNewUserData] = useState({
@@ -18,17 +17,10 @@ const CreateAccount = () => {
           [name]: value
         });
       };
-    /*
-      ...newUserData = { 
-        username: "BingoChicken", 
-        password: "pass1234"
-     }
-    */
-     
 
       const handleSubmit = async (e: FormEvent) => {
         e.preventDefault();
-            // Create a POST request for a new user with the login credentials provided ??
+            // Create a POST request for a new user with the login credentials provided
             try {
                 const data = await register(newUserData);
                 Auth.login(data.token)
@@ -36,9 +28,6 @@ const CreateAccount = () => {
             } catch (err) {
                 console.error('Failed to Register', err);
             }
-
-           // navigate('/login') // should the user be routed to "Login" after the creation of their new account?
-            // navigate('/home') // should the user be routed to "Home" on their new account?  
         };
 
     return (

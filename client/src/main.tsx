@@ -13,7 +13,7 @@ import Investment from './pages/Investment.tsx';
 import Travel from './pages/Travel.tsx';
 import About from './pages/AboutPage.tsx';
 import Login from './pages/Login.tsx';
-import CreateAccount from './pages/CreateAccountPage.tsx';
+import CreateAccount from './pages/CreateAccount.tsx';
 
 const router = createBrowserRouter([
   {

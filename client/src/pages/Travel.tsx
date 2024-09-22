@@ -1,17 +1,15 @@
 // src/components/Travel.tsx
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Currency } from '../interfaces/CurrencyInterface';
 
 const Travel: React.FC = () => {
-
-    const defaultCashflow = 10000;
    
     const [conversionCurrency, setConversionCurrency] = useState<string>('');
     const [baseCurrency, setBaseCurrency] = useState<string>('');
     const [convertedAmount, setConvertedAmount] = useState<number | undefined>(undefined);
     const [conversionRate, setConversionRate] = useState<number | null> (null);
     const [numberOfYears, setNumberOfYears] = useState<number>(1);
-    const [amountToConvert, setAmountToConvert] = useState<number>(defaultCashflow);
+    const [amountToConvert, setAmountToConvert] = useState<number>(0);
     const [error, setError] = useState<string | null>();
    
     const exchangeKey = import.meta.env.VITE_EXCHANGE_API_KEY;
@@ -28,7 +26,6 @@ const Travel: React.FC = () => {
             if (!response.ok) {
                 throw new Error('invalid API response, make sure you are setting the correct currency types in each field');
             }
-
 
             const data: Currency = await response.json();
             const currencyRate: number = data.conversion_rates[conversionCurrency]
@@ -78,6 +75,10 @@ const Travel: React.FC = () => {
         }
         searchCurrencyType(baseCurrency);
     };
+
+    useEffect(() => {
+        setAmountToConvert(10000);
+    }, []);
 
     return (
         <section>
