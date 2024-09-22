@@ -53,9 +53,16 @@ const Travel: React.FC = () => {
         } catch (err) {
             console.log('an error occured when trying to fetch currency data', err);
         }
-
-
     };
+
+    const initialCardSetup = [1, 3, 5, 10].map(years => { {
+        return {
+            years: years, 
+            currencyType: conversionCurrency, 
+            convertedAmount: "N/A"
+            };
+        } 
+    })
 
     
 
@@ -83,6 +90,7 @@ const Travel: React.FC = () => {
 
     useEffect(() => {
         setAmountToConvert(10000);
+        setCurrencyProjections(initialCardSetup);
     }, []);
 
     return (

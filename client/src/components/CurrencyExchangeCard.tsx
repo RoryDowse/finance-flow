@@ -9,7 +9,7 @@ interface CurrencyExchangeCardProps {
 const CurrencyExchangeCard = ({ years, currencyType, convertedAmount}: CurrencyExchangeCardProps) => {
     // Format totalReturn with commas and two decimal places
     const formattedConvertedAmount = convertedAmount !== null
-        ? `$${convertedAmount.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`
+        ? convertedAmount.toLocaleString('en-US')
         : 'N/A';
 
     return (
