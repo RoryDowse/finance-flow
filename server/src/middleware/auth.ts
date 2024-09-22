@@ -16,8 +16,7 @@ export const authenticateToken = (req: Request, res: Response, next: NextFunctio
     const token = authHeader.split(' ')[1]; // split method returns an array using a space as the delimiter, then returns the second element, i.e. the token
 
     // Access the secret key to verify the token
-    const secretKey = '12345';
-    // const secretKey = process.env.JWT_SECRET_KEY || '';
+    const secretKey = process.env.JWT_SECRET_KEY || '';
 
     // verify the token is valid and signed using the secret key
     jwt.verify(token, secretKey, (err, user) => {

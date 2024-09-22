@@ -1,11 +1,61 @@
-// src/components/Login.tsx
-import React from 'react';
+import React, { useState, FormEvent, ChangeEvent } from "react";
+import Auth from '../utils/auth';
+import { login } from "../api/authApi";
+import { Link } from "react-router-dom";
+
 
 const Login: React.FC = () => {
+
+    const [loginData, setLoginData] = useState({
+        username: '',
+        password: ''
+      });
+   
+      const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+        const { name, value } = e.target;
+        setLoginData({
+          ...loginData,
+          [name]: value
+        });
+      };
+   
+      const handleSubmit = async (e: FormEvent) => {
+        e.preventDefault();
+        try {
+          const data = await login(loginData);
+          Auth.login(data.token);
+        } catch (err) {
+          console.error('Failed to login', err);
+        }
+      };
+     
     return (
-        <div>
-            <h1>Login Page</h1>
-            {/* Add your login form or content here */}
+        <div className="login-page">
+          <button className='back-button'><Link className="back-button-link" to='/'>Back</Link></button>
+            <div className="form-container">
+                <form className="base-form" onSubmit={handleSubmit}>
+                  <h2>Login</h2>
+                  <div className="form-group">
+                    <label>Username</label>
+                    <input
+                    type='text'
+                    name='username'
+                    value={loginData.username || ''}
+                    onChange={handleChange}
+                    />
+                  </div>
+                  <div className="form-group">
+                    <label>Password</label>
+                    <input
+                    type='password'
+                    name='password'
+                    value={loginData.password || ''}
+                    onChange={handleChange}
+                    />
+                  </div>
+                  <button className="submit-button" type='submit'>Submit Form</button>
+                </form>
+            </div>
         </div>
     );
 };
