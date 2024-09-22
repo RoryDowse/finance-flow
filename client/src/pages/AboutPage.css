@@ -1,6 +1,33 @@
 .about-info {
   font-size: 20px;
-  text-align: left;
+  text-align: center;
   padding: 2% 25%;
   line-height: 1.8;
+}
+
+.description {
+  margin-bottom: 50px;
+}
+
+h3 {
+  margin-top: 80px;
+  margin-bottom: 40px;
+}
+
+.finance-flow {
+  padding: 20px;
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+.icon-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.icon-text i {
+  margin-bottom: 15px;
+  color: #17486c;
 }
