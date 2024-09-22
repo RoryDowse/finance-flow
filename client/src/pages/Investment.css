@@ -1,0 +1,188 @@
+.investment-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.content {
+  display: flex;
+  width: 100%; /* Full width for the content section */
+  justify-content: center;
+  align-items: center;
+}
+
+.sidebar {
+  flex-basis: 20%; /* Set the width of the sidebar */
+  padding: 20px;
+  border-right: 1px solid #ccc; /* Optional: Add a border on the right to separate the sidebar */
+}
+
+.ticker-search-text {
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.ticker-input {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+.main-content {
+  flex-basis: 80%; /* Remaining space for the main content */
+  padding: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.projection-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .sidebar {
+    flex-basis: 100%;
+    border-right: none;
+    border-bottom: 1px solid #ccc;
+  }
+
+  .ticker-input {
+    text-align: center;
+  }
+
+  .main-content {
+    flex-basis: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .projection-container {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  .content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .sidebar {
+    flex-basis: 100%;
+    border-right: none;
+    border-bottom: 1px solid #ccc;
+  }
+
+  .ticker-input {
+    text-align: center;
+  }
+
+  .main-content {
+    flex-basis: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .projection-container {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  .content {
+    flex-direction: row;
+  }
+
+  .sidebar {
+    flex-basis: 20%;
+    border-right: 1px solid #ccc;
+    border-bottom: none;
+  }
+
+  .ticker-input {
+    text-align: left;
+  }
+
+  .main-content {
+    flex-basis: 80%;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .projection-container {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  .content {
+    flex-direction: row;
+  }
+
+  .sidebar {
+    flex-basis: 20%;
+    border-right: 1px solid #ccc;
+    border-bottom: none;
+  }
+
+  .ticker-input {
+    text-align: left;
+  }
+
+  .main-content {
+    flex-basis: 80%;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .projection-container {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+  .content {
+    flex-direction: row;
+  }
+
+  .sidebar {
+    flex-basis: 20%;
+    border-right: 1px solid #ccc;
+    border-bottom: none;
+  }
+
+  .ticker-input {
+    text-align: left;
+  }
+
+  .main-content {
+    flex-basis: 80%;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .projection-container {
+    flex-direction: row;
+    align-items: center;
+  }
+}
