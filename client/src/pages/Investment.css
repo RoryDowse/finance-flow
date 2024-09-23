@@ -42,7 +42,7 @@ i:nth-of-type(1) {
 .content {
   display: flex;
   width: 100%; /* Full width for the content section */
-  justify-content: center;
+  /* justify-content: center; */
   align-items: center;
 }
 
@@ -55,6 +55,7 @@ i:nth-of-type(1) {
 .ticker-search-text {
   font-size: 28px;
   margin-bottom: 20px;
+  margin-top: 0px;
 }
 
 .ticker-input {
