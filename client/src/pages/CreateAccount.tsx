@@ -33,7 +33,7 @@ const CreateAccount = () => {
 
     return (
         <div className="form-page">
-          <button className='back-button'><Link className="back-button-link" to='/'>Back</Link></button>
+          <button className='back-button'><Link className="button" to='/'>Back</Link></button>
           <div className="form-container">
             <form className="base-form" onSubmit={handleSubmit}>
               <h2>Create Account</h2>

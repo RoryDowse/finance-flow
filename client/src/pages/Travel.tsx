@@ -98,7 +98,7 @@ const Travel: React.FC = () => {
             <h2 className="text-center">Currency Exchange Rates</h2>
             <div className="content">
                 <aside className="sidebar">
-                    <form onSubmit={handleSubmit}>
+                    <form className="search-center" onSubmit={handleSubmit}>
                         <h3 className="exchange-search-text text-center">Base Currency:</h3>
                         <input
                             type="text"

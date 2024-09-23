@@ -1,23 +1,37 @@
 /* Form Styling */
 .form-page {
-    margin: 30px;
-    padding: 20px;
-  }
+  margin: 30px;
+  padding: 20px;
+}
   
-.form-page .back-button{
-width: 150px;
-height: 40px;
+button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  transition: all 0.3s ease;
+}
+  
+
+.back-button {
+padding: 12px 20px;
+font-family: Arial, Helvetica, sans-serif;
+font-size: 20px;
+box-sizing: border-box;
 border-radius: 10px;
-background-color: lightgrey;
-cursor: pointer;
-font-size: 24px;
-font-weight: 600;
-margin: 0 0.5em;
+background-color: #ff2828;
+box-shadow: 0px 4px 8px #d11313; 
 }
 
-.form-page .back-button-link {
-color: black;
-text-decoration: none;
+.back-button:hover {
+background-color: #d11313;
+box-shadow: 0px 6px 12px #be0606;
+}
+
+.button {
+  color: white;
+  text-decoration: none;
+  padding-left: 45px;
+  padding-right: 45px;
 }
 
 .form-container {
@@ -28,16 +42,18 @@ height: 100vh;
 }
 
 .base-form {
-background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent white */
+background-color: white;
 padding: 30px;
 border-radius: 10px;
-box-shadow: 0 4px 25px rgba(0, 0, 0, 0.2);
-width: 300px; /* Fixed width */
+box-shadow: 0 4px 25px #a8a8a8;
+width: 20em;
+height: 25em; 
 text-align: center;
 }
 
 .base-form h2 {
 margin-bottom: 20px;
+font-family:Arial, Helvetica, sans-serif;
 color: black;
 font-size: 32px;
 }
@@ -49,6 +65,7 @@ text-align: left;
 
 .form-group label {
 display: block;
+font-family:Arial, Helvetica, sans-serif;
 margin-bottom: 5px;
 font-size: 24px;
 font-weight: bold;
@@ -63,22 +80,22 @@ box-sizing: border-box;
 }
 
 .form-group input:focus {
-border-color: #007bff; /* Focus border color */
-outline: none; /* Remove default outline */
+border-color: #007bff; 
+outline: none; 
 }
 
 .submit-button {
 width: 100%;
 padding: 10px;
-background-color: #007bff; /* Button color */
+background-color: #007bff;
 color: white;
 border: none;
-border-radius: 5px;
+border-radius: 10px;
 font-size: 16px;
 cursor: pointer;
 transition: background-color 0.3s;
 }
 
 .submit-button:hover {
-background-color: #0056b3; /* Darker button color on hover */
+background-color: #0056b3; 
 }
