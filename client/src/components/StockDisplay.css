@@ -20,11 +20,13 @@
   font-weight: bold;
   margin-top: 0 !important;
   margin-bottom: 30px;
+  text-align: center;
 }
 
 .info-display {
   font-weight: bold;
   margin-bottom: 10px;
+  text-align: center;
 }
 
 /* Extra small devices (phones, 600px and down) */
@@ -32,20 +34,12 @@
   .financial-item-container {
     width: 90%;
   }
-
-  .ticker-display {
-    text-align: center;
-  }
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {
   .financial-item-container {
-    width: 90%;
-  }
-
-  .ticker-display {
-    text-align: center;
+    width: 100%;
   }
 }
 
@@ -54,10 +48,6 @@
   .financial-item-container {
     width: 80%;
   }
-
-  .ticker-display {
-    text-align: center;
-  }
 }
 
 /* Large devices (laptops/desktops, 992px and up) */
@@ -65,19 +55,11 @@
   .financial-item-container {
     width: 50%;
   }
-
-  .ticker-display {
-    text-align: center;
-  }
 }
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (min-width: 1200px) {
   .financial-item-container {
     width: 40%;
-  }
-
-  .ticker-display {
-    text-align: center;
   }
 }
