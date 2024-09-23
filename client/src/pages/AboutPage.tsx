@@ -18,47 +18,48 @@ const About = () => {
             <h2 className="text-center">About</h2>
             <div className="about-info">
                 <Card>
-                    <p className="description">FinanceFlow helps users boost their cashflow, allowing them to:</p>
+                    <p className="description-head">FinanceFlow helps users boost their cashflow, allowing them to:</p>
                     <div className="icon-text">
                         <i className="fas fa-dollar-sign"></i>
-                        <p>Prioritize income and expenses</p>
+                        <p className="description">Prioritize income and expenses</p>
                     </div>
                     <div className="icon-text">
                         <i className="fas fa-briefcase"></i>
-                        <p>Make informed investment decisions</p>
+                        <p className="description">Make informed investment decisions</p>
                     </div>
                     <div className="icon-text">
                         <i className="fas fa-plane"></i>
-                        <p>Make better travel decisions by considering currency rates</p>
+                        <p className="description">Make better travel decisions by considering currency rates</p>
                     </div>
                 </Card>
 
                 <h3>Features</h3>
                 <Card>
+                <p className="description-head">Users can:</p>
                     <div className="icon-text">
                         <i className="fas fa-calculator"></i>
-                        <p>View cashflow</p>
+                        <p className="description">View cashflow</p>
                     </div>
                     <div className="icon-text">
                         <i className="fas fa-chart-bar"></i>
-                        <p>Access stock data</p>
+                        <p className="description">Access stock data</p>
                     </div>
                     <div className="icon-text">
                         <i className="fas fa-exchange-alt"></i>
-                        <p>Check currency exchange rates</p>
+                        <p className="description">Check currency exchange rates</p>
                     </div>
                 </Card>
 
                 <h3>Projections</h3>
                 <Card>
-                    <p className="description">The app calculates cashflow and projects potential returns using:</p>
+                    <p className="description-head">The app calculates cashflow and projects potential returns using:</p>
                     <div className="icon-text">
                         <i className="fas fa-calendar-alt"></i>
-                        <p>10-year stock market data</p>
+                        <p className="description">10-year stock market data</p>
                     </div>
                     <div className="icon-text">
                         <i className="fas fa-money-bill"></i>
-                        <p>Current currency exchange rates</p>
+                        <p className="description">Current currency exchange rates</p>
                     </div>
                     <div className="icon-text">
                         <i className="fas fa-exclamation-triangle"></i>

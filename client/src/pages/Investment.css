@@ -68,7 +68,7 @@ i:nth-of-type(1) {
 .submit-button {
   width: 100%;
   padding: 10px;
-  background-color: grey;
+  background-color: #17486c;
   color: white;
   border: none;
   border-radius: 5px;

@@ -7,15 +7,22 @@
 
 .card {
   padding: 20px;
-  background-color: #f4f4f4; /* Card background */
+  background-color: #fafafa; /* Card background */
   border: 1px solid #ccc; /* Border around the card */
   border-radius: 8px; /* Rounded corners */
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
   margin-bottom: 20px; /* Space between cards */
 }
 
+.description-head {
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: black;
+}
+
 .description {
   margin-bottom: 10px;
+  color: black;
 }
 
 .icon-text {
@@ -27,7 +34,7 @@
 
 .icon-text i {
   margin-bottom: 15px;
-  color: #17486c;
+  color: #f0544f;
 }
 
 h3 {

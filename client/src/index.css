@@ -16,7 +16,13 @@
   text-align: right;
 }
 
+body {
+  background: linear-gradient(90deg, #638475, #17486c);
+  color: white;
+}
+
 h2 {
   font-size: 56px;
   margin-top: 50px;
+  color: #fafafa;
 }
