@@ -53,6 +53,7 @@ const Cashflow = () => {
   useEffect(() => {
       const calculatedCashflow = totalIncome - totalExpenses;
       setCashflow(calculatedCashflow);
+      localStorage.setItem('cashflow', String (calculatedCashflow));
   }, [totalIncome, totalExpenses]);
   
   const checkLogin = () => {
