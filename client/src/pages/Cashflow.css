@@ -73,10 +73,27 @@ i {
   align-items: center;
   justify-content: center;
   width: 75%;
-  background-color: #f0544f;
   color: white;
   border-radius: 5px;
   padding: 40px 40px 20px 40px;
+
+  /* Gradient and animation */
+  background: linear-gradient(270deg, #4d4d4d, #6d6d6d);
+  background-size: 400% 400%;
+  animation: flow 8s ease infinite;
+}
+
+/* Animation keyframes */
+@keyframes flow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 .cashflow-display:hover {

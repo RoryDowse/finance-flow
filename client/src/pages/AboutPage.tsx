@@ -15,7 +15,7 @@ interface CardProps {
 const About = () => {
     return (
         <div>
-            <h2 className="text-center">About</h2>
+            <h2 className="text-center about-h2">About</h2>
             <div className="about-info">
                 <Card>
                     <p className="description-head">FinanceFlow helps users boost their cashflow, allowing them to:</p>
