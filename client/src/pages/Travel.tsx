@@ -86,11 +86,11 @@ const Travel: React.FC = () => {
         <div>
             <div className="travel-page webpage-background">
                 <i className="fas fa-chart-bar" style={{ color: '#F0544F' }}></i>
-                <p className="description-1">Enter your Base Currency and  to get projections for the next 1, 3, 5, and 10 years based on cashflow</p>
+                <p className="description-1">Enter your Base Currency and Target Currency to see Cashflow</p>
                 <i className="fas fa-calendar-alt" style={{ color: '#F0544F' }}></i>
-                <p className="description-2">The projections are made on historical stock data from the past 10 years</p>
+                <p className="description-2">The results are based on real, updated currency exchange rates</p>
                 <i className="fas fa-exclamation-triangle" style={{ color: '#F0544F' }}></i> 
-                <p className="description-2">Past performance is not indicative of future outcomes</p>
+                <p className="description-2">You will recieve 1, 3, 5 and 10 year projections of the target currency based on your cashflow</p>
                 <h2 className="text-center">Currency Exchange Rates</h2>
                 <div className="content">
                     <aside className="sidebar">
@@ -104,7 +104,7 @@ const Travel: React.FC = () => {
                                 placeholder="USD"
                                 className="exchange-input"
                             />
-                            <h3 className="exchange-search-text text-center">Converted Currency:</h3>
+                            <h3 className="exchange-search-text text-center">Target Currency:</h3>
                             <input
                                 type="text"
                                 name="baseCurrency"
@@ -113,7 +113,7 @@ const Travel: React.FC = () => {
                                 placeholder="EUR"
                                 className="exchange-input"
                             />
-                            <h3 className="exchange-search-text text-center">Cashflow:</h3>
+                            <h3 className="exchange-search-text text-center">Your Cashflow:</h3>
                             <input
                                 type="text"
                                 name="cashflow"

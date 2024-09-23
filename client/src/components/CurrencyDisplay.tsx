@@ -16,7 +16,7 @@ const CurrencyDisplay: React.FC<CurrencyDisplayProps> = ({
       <h3 className="currency-display">Currency Information</h3>
       <p className="info-display">Base Currency Type:</p>
         <p>{baseCurrencyType ? baseCurrencyType : 'N/A'}</p>
-      <p className="info-display">Current Cash Flow: </p>
+      <p className="info-display">Current Cashflow: </p>
         <p>{currentCashflow !== null ? `${currentCashflow.toFixed(0)}` : 'N/A'}</p>
     </div>
   );
