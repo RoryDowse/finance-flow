@@ -18,7 +18,7 @@ const About = () => {
             <h2 className="text-center about-h2">About</h2>
             <div className="about-info">
                 <Card>
-                    <p className="description-head">FinanceFlow helps users boost their cashflow, allowing them to:</p>
+                    <p className="description-head">FinanceFlow helps users boost their cashflow:</p>
                     <div className="icon-text">
                         <i className="fas fa-dollar-sign"></i>
                         <p className="description">Prioritize income and expenses</p>
@@ -33,7 +33,7 @@ const About = () => {
                     </div>
                 </Card>
 
-                <h3>Features</h3>
+                <h3 className="about-h3">Features</h3>
                 <Card>
                 <p className="description-head">Users can:</p>
                     <div className="icon-text">
@@ -50,7 +50,7 @@ const About = () => {
                     </div>
                 </Card>
 
-                <h3>Projections</h3>
+                <h3 className="about-h3">Projections</h3>
                 <Card>
                     <p className="description-head">The app calculates cashflow and projects potential returns using:</p>
                     <div className="icon-text">

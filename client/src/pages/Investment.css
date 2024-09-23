@@ -7,17 +7,18 @@
 
 i {
   margin-bottom: 15px;
-  color: #17486c;
+  color: #f0544f;
   font-size: 20px;
 }
 
 i:nth-of-type(1) {
   margin-top: 50px;
   margin-bottom: 15px;
-  color: #17486c;
 }
 
-.description-1 {
+.description-1,
+.description-2,
+.description-3 {
   font-size: 20px;
   text-align: center;
   margin-top: 0px;
@@ -25,31 +26,16 @@ i:nth-of-type(1) {
   margin-bottom: 60px;
 }
 
-.description-2 {
-  text-align: center;
-  font-size: 20px;
-  padding: 0 10%;
-  margin-bottom: 60px;
-}
-
-.description-3 {
-  text-align: center;
-  font-size: 20px;
-  padding: 0 10%;
-  margin-bottom: 60px;
-}
-
 .content {
   display: flex;
-  width: 100%; /* Full width for the content section */
-  /* justify-content: center; */
+  width: 100%;
   align-items: center;
 }
 
 .sidebar {
-  flex-basis: 20%; /* Set the width of the sidebar */
+  flex-basis: 20%; /* Sidebar takes up 20% of the available space */
   padding: 20px;
-  border-right: 1px solid #ccc; /* Optional: Add a border on the right to separate the sidebar */
+  border-right: 1px solid #ccc; /* Add a border to the right side of the sidebar */
 }
 
 .ticker-search-text {
@@ -75,7 +61,11 @@ i:nth-of-type(1) {
   border-radius: 5px;
   font-size: 16px;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s ease;
+}
+
+.submit-button:hover {
+  background-color: #17496cde;
 }
 
 .main-content {

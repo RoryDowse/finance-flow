@@ -11,15 +11,15 @@
 
 .card {
   padding: 20px;
-  background-color: #fafafa; /* Card background */
-  border: 1px solid #ccc; /* Border around the card */
-  border-radius: 8px; /* Rounded corners */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-  margin-bottom: 20px; /* Space between cards */
+  background-color: #fafafa;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
 }
 
 .description-head {
-  font-weight: bold;
+  font-weight: 600;
   margin-bottom: 10px;
   color: black;
 }
@@ -33,7 +33,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 0px;
 }
 
 .icon-text i {
@@ -41,7 +40,7 @@
   color: #f0544f;
 }
 
-h3 {
+.about-h3 {
   margin-top: 80px;
   margin-bottom: 40px;
 }

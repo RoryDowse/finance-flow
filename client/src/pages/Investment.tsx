@@ -160,11 +160,11 @@ const handleTickerSubmit = (event: React.FormEvent<HTMLFormElement>) => {
  return (
     <div className="investment-page">
       <h2 className="text-center">Investment</h2>
-      <i className="fas fa-chart-bar" style={{ color: '#F0544F' }}></i>
+      <i className="fas fa-chart-bar"></i>
       <p className="description-1">Enter a ticker symbol to get projections for the next 1, 3, 5, and 10 years based on cashflow</p>
-      <i className="fas fa-calendar-alt" style={{ color: '#F0544F' }}></i>
+      <i className="fas fa-calendar-alt"></i>
       <p className="description-2">The projections are made on historical stock data from the past 10 years</p>
-      <i className="fas fa-exclamation-triangle" style={{ color: '#F0544F' }}></i> 
+      <i className="fas fa-exclamation-triangle"></i> 
       <p className="description-2">Past performance is not indicative of future outcomes</p>
       <div className="content">
         <aside className="sidebar">
