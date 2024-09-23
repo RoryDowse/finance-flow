@@ -4,3 +4,15 @@
   width: 30px;
   height: 30px;
 }
+
+.navbar-background {
+  background: linear-gradient(90deg, #638475, #17486c);
+}
+
+.navbar-color {
+  color: white;
+}
+
+.navbar-nav .active {
+  color: red;
+}

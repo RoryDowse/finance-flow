@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { Currency } from '../interfaces/CurrencyInterface';
 import { CurrencyProjections } from '../interfaces/CurrencyProjections';
 import './Travel.css';
+import Footer from '../components/Footer';
 import CurrencyDisplay from '../components/CurrencyDisplay';
 import CurrencyExchangeCard from '../components/CurrencyExchangeCard';
 
@@ -55,17 +56,6 @@ const Travel: React.FC = () => {
         }
     };
 
-    const initialCardSetup = [1, 3, 5, 10].map(years => { {
-        return {
-            years: years, 
-            currencyType: conversionCurrency, 
-            convertedAmount: "N/A"
-            };
-        } 
-    })
-
-    
-
     // Handles the Search bar Input, setting Currency to be whatever they type.
     const handleBaseCurrencyInput = (event: React.ChangeEvent<HTMLInputElement>) => {
         setBaseCurrency(event.target.value.toUpperCase());
@@ -89,64 +79,72 @@ const Travel: React.FC = () => {
     };
 
     useEffect(() => {
-        setAmountToConvert(10000);
-        setCurrencyProjections(initialCardSetup);
+        setAmountToConvert(6045);
     }, []);
 
     return (
-        <div className="travel-page">
-            <h2 className="text-center">Currency Exchange Rates</h2>
-            <div className="content">
-                <aside className="sidebar">
-                    <form className="search-center" onSubmit={handleSubmit}>
-                        <h3 className="exchange-search-text text-center">Base Currency:</h3>
-                        <input
-                            type="text"
-                            name="baseCurrency"
-                            value={baseCurrency}
-                            onChange={handleBaseCurrencyInput}
-                            placeholder="USD"
-                            className="exchange-input"
-                        />
-                        <h3 className="exchange-search-text text-center">Converted Currency:</h3>
-                        <input
-                            type="text"
-                            name="baseCurrency"
-                            value={conversionCurrency}
-                            onChange={handleConversionCurrencyInput}
-                            placeholder="EUR"
-                            className="exchange-input"
-                        />
-                        <h3 className="exchange-search-text text-center">Cash Flow:</h3>
-                        <input
-                            type="text"
-                            name="cashflow"
-                            value={amountToConvert}
-                            onChange={handleCashflowInput}
-                            className="exchange-input"
-                        />
-                        <button className="search-button" type="submit">Search</button>
-                    </form>
-                </aside>
-                <section className="main-content">
-                    <div>
-                        <CurrencyDisplay 
-                        baseCurrencyType={baseCurrency}
-                        currentCashflow={amountToConvert}
-                        />
-                        <div className="projection-container">
-                            {currencyProjections.map((currencyProjection) => (
-                                <CurrencyExchangeCard
-                                key={currencyProjection.years}
-                                years={currencyProjection.years}
-                                currencyType={currencyProjection.currencyType}
-                                convertedAmount={currencyProjection.convertedAmount}
-                                />
-                            ))}
+        <div>
+            <div className="travel-page webpage-background">
+                <i className="fas fa-chart-bar" style={{ color: '#F0544F' }}></i>
+                <p className="description-1">Enter your Base Currency and  to get projections for the next 1, 3, 5, and 10 years based on cashflow</p>
+                <i className="fas fa-calendar-alt" style={{ color: '#F0544F' }}></i>
+                <p className="description-2">The projections are made on historical stock data from the past 10 years</p>
+                <i className="fas fa-exclamation-triangle" style={{ color: '#F0544F' }}></i> 
+                <p className="description-2">Past performance is not indicative of future outcomes</p>
+                <h2 className="text-center">Currency Exchange Rates</h2>
+                <div className="content">
+                    <aside className="sidebar">
+                        <form className="search-center" onSubmit={handleSubmit}>
+                            <h3 className="exchange-search-text text-center">Base Currency:</h3>
+                            <input
+                                type="text"
+                                name="baseCurrency"
+                                value={baseCurrency}
+                                onChange={handleBaseCurrencyInput}
+                                placeholder="USD"
+                                className="exchange-input"
+                            />
+                            <h3 className="exchange-search-text text-center">Converted Currency:</h3>
+                            <input
+                                type="text"
+                                name="baseCurrency"
+                                value={conversionCurrency}
+                                onChange={handleConversionCurrencyInput}
+                                placeholder="EUR"
+                                className="exchange-input"
+                            />
+                            <h3 className="exchange-search-text text-center">Cashflow:</h3>
+                            <input
+                                type="text"
+                                name="cashflow"
+                                value={amountToConvert}
+                                onChange={handleCashflowInput}
+                                className="exchange-input"
+                            />
+                            <button className="search-button" type="submit">Search</button>
+                        </form>
+                    </aside>
+                    <section className="main-content">
+                        <div>
+                            <CurrencyDisplay 
+                            baseCurrencyType={baseCurrency}
+                            currentCashflow={amountToConvert}
+                            />
+                            <div className="projection-container">
+                                {currencyProjections.map((currencyProjection) => (
+                                    <CurrencyExchangeCard
+                                    key={currencyProjection.years}
+                                    years={currencyProjection.years}
+                                    currencyType={currencyProjection.currencyType}
+                                    convertedAmount={currencyProjection.convertedAmount}
+                                    />
+                                ))}
+                            </div>
                         </div>
-                    </div>
-                </section>
+                    </section>
+                </div>
             </div>
+            <Footer />
         </div>
     );
 };

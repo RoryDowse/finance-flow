@@ -74,10 +74,6 @@ const Cashflow = () => {
     {
       !loginCheck ? (
         <div>
-          <h1>
-            Finance Flow
-          </h1>
-          <img></img>
         </div>
       ) : (
         <div>

@@ -38,7 +38,7 @@ const CreateAccount = () => {
             <form className="base-form" onSubmit={handleSubmit}>
               <h2>Create Account</h2>
               <div className="form-group">
-                <label>Enter Username</label>
+                <label>Username</label>
                 <input
                   type='text'
                   name='username'
@@ -47,7 +47,7 @@ const CreateAccount = () => {
                 />
               </div> 
               <div className="form-group">
-                <label>Enter Password</label>
+                <label>Password</label>
                 <input
                   type='password'
                   name='password'
