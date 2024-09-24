@@ -1,3 +1,4 @@
+// Basic header that incorporates the websites background
 const Header = () => {
     return (
         <div className="webpage-background">
@@ -6,4 +7,4 @@ const Header = () => {
       );
     };
     
-    export default Header;
+export default Header;

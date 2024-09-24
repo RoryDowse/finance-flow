@@ -1,3 +1,4 @@
+
 .financial-item-container {
   display: flex;
   flex-direction: column;
@@ -27,6 +28,8 @@
   margin-bottom: 10px;
   text-align: center;
 }
+
+/* Responsive Styling */
 
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {

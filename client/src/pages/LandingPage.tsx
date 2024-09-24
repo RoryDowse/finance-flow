@@ -1,10 +1,13 @@
 import { Link } from 'react-router-dom';
+
+// Import css files for styling
 import './LandingPage.css';
 import '../components/Footer.css';
+
+// Import Image
 import Logo from '../assets/images/financeflow-logo.png'
 
 const LandingPage = () => {
-
     return (
         <div className="landing-page">
             <section className="logo-h1">

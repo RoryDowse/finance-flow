@@ -1,9 +1,11 @@
+/* Global Page Styling */
 .travel-page {
     display: flex;
     flex-direction: column;
     align-items: center;
   }
 
+/* Information Styling */
 i {
   margin-bottom: 15px;
   color: #17486c;
@@ -37,7 +39,8 @@ i:nth-of-type(1) {
   padding: 0 10%;
   margin-bottom: 60px;
 }
-  
+
+/* Main Content Styling */
 .content {
   display: flex;
   width: 100%; 
@@ -45,6 +48,7 @@ i:nth-of-type(1) {
   align-items: center;
 }
 
+/* Input Fields/Search Button Styling */
 .sidebar {
   flex-basis: 20%; 
   padding: 20px;
@@ -70,6 +74,7 @@ i:nth-of-type(1) {
   align-items: center;
 }
 
+/* Main Cards Styling */
 .main-content {
   flex-basis: 80%; 
   padding: 20px;
@@ -84,6 +89,8 @@ i:nth-of-type(1) {
   justify-content: center;
   align-items: center;
 }
+
+/* Responsive Styling */
 
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {

@@ -35,7 +35,7 @@ export const login = async (req: Request, res: Response) => {
   return res.json({ token });
 };
 
-
+// Creates a user based on the username recieved
 export const signup = async (req: Request, res: Response) => {
   // Destructure the username and password from the request body (the data sent by the client on the form submission)
   const { username } = req.body;
@@ -45,11 +45,7 @@ export const signup = async (req: Request, res: Response) => {
     const foundUser = await User.findOne({
       where: { username },
     });
-/*
-    User.create()
-        .then()
-        .catch()
-        */
+
     // Check if the user exists
     if (foundUser) {
       return res.status(401).json({ message: 'Creation failed, Username already exists' }); // Message is custom key in JSON object (part of the response body)
@@ -76,6 +72,7 @@ export const signup = async (req: Request, res: Response) => {
 const router = Router();
 
 // POST /login - Login a user
+// POST /signup - Create a user
 router.post('/login', login);
 router.post('/signup', signup);
 
