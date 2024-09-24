@@ -21,7 +21,7 @@ const LandingPage = () => {
                     </ul> 
                 </section>
                 <section className="lp-right-container">
-                    <button className="login-button" type="button"><Link className="button-login" to='/login'>Login</Link></button>
+                    <button className="base-button" type="button"><Link className="button-login" to='/login'>Login</Link></button>
                     <button className="create-account-button" type="button"><Link className="button-create-account" to='/create-account'>Create Account</Link></button>
                 </section>
             </div>

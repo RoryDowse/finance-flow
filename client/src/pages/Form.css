@@ -84,7 +84,7 @@ border-color: #007bff;
 outline: none; 
 }
 
-.submit-button {
+.login-button {
 width: 100%;
 padding: 10px;
 background-color: #007bff;
@@ -96,6 +96,6 @@ cursor: pointer;
 transition: background-color 0.3s;
 }
 
-.submit-button:hover {
+.login-button:hover {
 background-color: #0056b3; 
 }

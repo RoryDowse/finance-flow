@@ -73,7 +73,7 @@ button {
   transition: all 0.3s ease;
 }
 
-.login-button {
+.base-button {
   padding: 12px 20px;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 20px;
@@ -83,7 +83,7 @@ button {
   box-shadow: 0px 4px 8px rgba(0, 123, 255, 0.4); 
 }
 
-.login-button:hover {
+.base-button:hover {
   background-color: #0056b3; 
   box-shadow: 0px 6px 12px rgba(0, 123, 255, 0.5); 
   transform: translateY(-2px); 

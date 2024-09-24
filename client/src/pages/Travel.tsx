@@ -109,7 +109,7 @@ const Travel: React.FC = () => {
                                 placeholder="EUR"
                                 className="exchange-input"
                             />
-                            <button className="search-button" type="submit">Search</button>
+                            <button className="submit-button" type="submit">Search</button>
                         </form>
                     </aside>
                     <section className="main-content">

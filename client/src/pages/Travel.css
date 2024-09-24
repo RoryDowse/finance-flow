@@ -70,24 +70,6 @@ i:nth-of-type(1) {
   align-items: center;
 }
 
-.search-button {
-  width: 80%;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 16px;
-  box-sizing: border-box;
-  border-radius: 5px;
-  border: none;
-  padding: 10px;
-  background-color: #007BFF;
-  color: white; 
-  cursor: pointer;
-  transition: background-color 0.3s ease; 
-}
-
-.search-button:hover {
-  background-color: #0056b3; 
-}
-
 .main-content {
   flex-basis: 80%; 
   padding: 20px;

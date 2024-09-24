@@ -55,7 +55,7 @@ const Login: React.FC = () => {
                     onChange={handleChange}
                     />
                   </div>
-                  <button className="submit-button" type='submit'>Submit Form</button>
+                  <button className="login-button" type='submit'>Submit Form</button>
                 </form>
             </div>
         </div>

@@ -53,6 +53,22 @@ h1 {
   }
 }
 
+.submit-button {
+  width: 100%;
+  padding: 10px;
+  background-color: #17486c;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submit-button:hover {
+  background-color: #17496cde;
+}
+
 @media only screen and (max-width: 600px) {
   
   .webpage-background h1 {
