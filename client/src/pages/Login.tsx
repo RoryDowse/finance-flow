@@ -3,6 +3,8 @@ import Auth from '../utils/auth';
 import { login } from "../api/authAPI_temp";
 import { Link } from "react-router-dom";
 
+import './Form.css';
+
 
 const Login: React.FC = () => {
 
@@ -30,8 +32,8 @@ const Login: React.FC = () => {
       };
      
     return (
-        <div className="login-page">
-          <button className='back-button'><Link className="back-button-link" to='/'>Back</Link></button>
+        <div className="form-page">
+          <button className='back-button'><Link className="button" to='/'>Back</Link></button>
             <div className="form-container">
                 <form className="base-form" onSubmit={handleSubmit}>
                   <h2>Login</h2>
@@ -53,7 +55,7 @@ const Login: React.FC = () => {
                     onChange={handleChange}
                     />
                   </div>
-                  <button className="submit-button" type='submit'>Submit Form</button>
+                  <button className="login-button" type='submit'>Submit Form</button>
                 </form>
             </div>
         </div>

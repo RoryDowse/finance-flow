@@ -1,0 +1,37 @@
+/* Navbar Styling */
+
+.navbar-financeflow-logo {
+  width: 30px;
+  height: 30px;
+}
+
+.navbar-background {
+  background: linear-gradient(90deg, #638475, #17486c);
+}
+
+.navbar-color {
+  color: white;
+}
+
+.navbar-nav .active {
+  color: red;
+}
+
+.navbar-light .navbar-toggler {
+  background-color: #638475; /* Change to your desired color */
+}
+
+.hamburger-logout-button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@media screen and (max-width: 991px) {
+  .hamburger-logout-button {
+    display: flex;
+    flex-direction: column;
+    justify-content: none !important;
+    align-items: center;
+  }
+}

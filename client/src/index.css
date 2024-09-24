@@ -21,8 +21,10 @@ body {
   color: white;
 }
 
-h2 {
-  font-size: 56px;
+h1 {
+  margin: 0px;
+  padding: 20px 0px;
+  font-size: 108px;
   font-weight: bold;
   text-align: center;
   background: linear-gradient(90deg, #17486c, #738348, #fbde65);
@@ -41,5 +43,43 @@ h2 {
   }
   100% {
     background-position: 0% 0%;
+  }
+}
+
+.submit-button {
+  width: 100%;
+  padding: 10px;
+  background-color: #17486c;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submit-button:hover {
+  background-color: #17496cde;
+}
+
+@media only screen and (max-width: 600px) {
+  
+  .webpage-background h1 {
+      font-size: 48px; 
+      padding: 10px; 
+  }
+}
+
+@media only screen and (min-width: 601px) and (max-width: 768px) {
+  
+  .webpage-background h1 {
+      font-size: 64px; 
+  }
+}
+
+@media only screen and (min-width: 769px) {
+  
+  .webpage-background h1 {
+      font-size: 80px; 
   }
 }

@@ -1,0 +1,209 @@
+/* Landing Page Styling */
+
+.landing-page {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  padding-top: 150px;
+  box-sizing: border-box;
+}
+
+.logo-h1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  margin-bottom: 50px;
+}
+
+.financeflow-logo {
+  width: 100px;
+  height: auto;
+  margin-right: 20px;
+}
+
+.landing-page h1 {
+  /* font-size: 60px; */
+  font-family: 'Lora', serif;
+  font-weight: 700;
+  color: black;
+  background: none;
+  background-size: 0%;
+  -webkit-text-fill-color: black;
+  animation: flow 5s ease-in-out infinite;
+}
+
+.catch-phrase {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.landing-page ul li {
+  max-width: 500px;
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
+.lp-both-containers {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.lp-left-container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+  padding-left: 20px;
+  padding-right: 20px;
+  width: 50%;
+}
+
+.lp-right-container {
+  border-left: 2px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 20%;
+}
+
+/* Button Styling */
+
+button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.base-button {
+  margin-bottom: 30px;
+  padding: 12px 20px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  box-sizing: border-box;
+  border-radius: 10px;
+  background-color: #007bff; 
+  box-shadow: 0px 4px 8px rgba(0, 123, 255, 0.4); 
+}
+
+.base-button:hover {
+  background-color: #0056b3; 
+  box-shadow: 0px 6px 12px rgba(0, 123, 255, 0.5); 
+  transform: translateY(-2px); 
+}
+
+.create-account-button {
+  padding: 12px 20px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  box-sizing: border-box;
+  border-radius: 10px;
+  background-color: #28a745; 
+  color: #fff;
+  box-shadow: 0px 4px 8px rgba(40, 167, 69, 0.4); 
+}
+
+.create-account-button:hover {
+  background-color: #218838; 
+  box-shadow: 0px 6px 12px rgba(40, 167, 69, 0.5); 
+  transform: translateY(-2px); 
+}
+
+.button-login {
+  color: white;
+  text-decoration: none;
+  padding-left: 45px;
+  padding-right: 45px;
+}
+
+.button-create-account {
+  color: white;
+  text-decoration: none;
+}
+
+/* Responsive Styling */
+
+@media only screen and (max-width: 600px) {
+
+  .financeflow-logo {
+    width: 70px;
+    margin-right: 10px;
+  }
+
+  .logo-h1 h1 {
+    font-size: 32px;
+    text-align: center;
+  }
+
+  .landing-page {
+    padding-top: 100px;
+  }
+
+  .landing-page h1 {
+    font-size: 36px;
+  }
+
+  .lp-both-containers {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .lp-right-container {
+    border-left: none;
+    width: 80%; 
+    margin-top: 20px;
+  }
+
+  .lp-left-container {
+    width: 100%;
+    padding: 0 20px;
+  }
+
+  .base-button, .create-account-button {
+    margin-bottom: 15px !important;
+  }
+}
+
+@media only screen and (min-width: 600px) and (max-width: 768px) {
+
+  .financeflow-logo {
+    width: 85px;
+  }
+
+  .landing-page {
+    padding-top: 120px;
+  }
+
+  .landing-page h1 {
+    font-size: 48px;
+  }
+
+  .lp-right-container {
+    width: 70%;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+
+  .financeflow-logo {
+    width: 100px;
+  }
+
+  .landing-page h1 {
+    font-size: 64px;
+  }
+
+  .landing-page {
+    padding-top: 150px;
+  }
+
+  .lp-left-container,
+  .lp-right-container {
+    width: 50%;
+  }
+}

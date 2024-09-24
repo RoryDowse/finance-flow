@@ -2,6 +2,7 @@ import { useState, FormEvent, ChangeEvent } from 'react';
 import { register } from '../api/authAPI_temp';
 import Auth from '../utils/auth';
 import { Link } from 'react-router-dom';
+import './Form.css';
 
 const CreateAccount = () => {
  
@@ -31,13 +32,13 @@ const CreateAccount = () => {
         };
 
     return (
-        <div className="login-page">
-          <button className='back-button'><Link className="back-button-link" to='/'>Back</Link></button>
+        <div className="form-page">
+          <button className='back-button'><Link className="button" to='/'>Back</Link></button>
           <div className="form-container">
             <form className="base-form" onSubmit={handleSubmit}>
               <h2>Create Account</h2>
               <div className="form-group">
-                <label>Enter Username</label>
+                <label>Username</label>
                 <input
                   type='text'
                   name='username'
@@ -46,7 +47,7 @@ const CreateAccount = () => {
                 />
               </div> 
               <div className="form-group">
-                <label>Enter Password</label>
+                <label>Password</label>
                 <input
                   type='password'
                   name='password'
@@ -54,7 +55,7 @@ const CreateAccount = () => {
                   onChange={handleChange}
                 />
               </div>  
-              <button className="submit-button"type='submit'>Submit Form</button>
+              <button className="login-button"type='submit'>Submit Form</button>
             </form>
           </div>
         </div>
