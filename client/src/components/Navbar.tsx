@@ -2,14 +2,12 @@ import { useState, useEffect } from 'react';
 import { Link, useNavigate } from "react-router-dom";
 import auth from '../utils/auth';
 
-
 const Navbar = () => {
-
-  const [ loginCheck, setLoginCheck ] = useState(false);
+  const [loginCheck, setLoginCheck] = useState(false);
   const navigate = useNavigate();
 
   const checkLogin = () => {
-    if(auth.loggedIn()) {
+    if (auth.loggedIn()) {
       setLoginCheck(true);
       navigate('/home');
     }
@@ -17,14 +15,14 @@ const Navbar = () => {
 
   useEffect(() => {
     checkLogin();
-  }, [loginCheck])
+  }, [loginCheck]);
 
   return (
     <div>
       {
         !loginCheck ? (
           <div>
-            <h1></h1> 
+            <h1></h1>
           </div>
         ) : (
           <div className="navbar-container">
@@ -32,32 +30,36 @@ const Navbar = () => {
               <img src="" alt="financeflow-logo"></img>
             </div>
             <div className="navbar-inner-container">
-              <h2>
+              <p>
                 <Link className="navbar-links" to='/home'>Home</Link>
-              </h2>
-              <h2>
+              </p>
+              <p>
                 <Link className="navbar-links" to='/expenses'>
-                  <p>(Expenses)</p>
+                  (Expenses)
                 </Link>
-              </h2>
-              <h2>
+              </p>
+              <p>
                 <Link className="navbar-links" to='/investment'>
-                  <p>Investment</p>
+                  Investment
                 </Link>
-              </h2>
-              <h2>
+              </p>
+              <p>
                 <Link className="navbar-links" to='/travel'>
-                  <p>Currency Exchange</p>
+                  Currency Exchange
                 </Link>
-              </h2>
-              <h2>
+              </p>
+              <p>
                 <Link className="navbar-links" to='/about'>
-                  <p>About</p>
+                  About
                 </Link>
-              </h2>
+              </p>
             </div>
-            
-            <button className="navbar-logout-button"type='button' onClick={() => {auth.logout();}}>Logout</button>
+            <button
+              className="navbar-logout-button"
+              type='button'
+              onClick={() => { auth.logout(); }}>
+              Logout
+            </button>
           </div>
         )
       }

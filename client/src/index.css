@@ -16,197 +16,30 @@
   text-align: right;
 }
 
-/* Navbar Content */
-.navbar-container {
-  display: flex; 
-  width: 70%;                  
-  justify-content: space-evenly;  
-  align-items: center;            
-  background-color: #f8f8f8; 
-  margin: auto; 
-  box-sizing: border-box;  
+body {
+  background: linear-gradient(90deg, #638475, #17486c);
+  color: white;
 }
 
-.navbar-inner-container {
-  display: flex;                 
-  justify-content: space-evenly;  
-  align-items: center;            
-  background-color: #f8f8f8;
-  width: 100%; 
-}
-
-.navbar-logout-button {
-  width: 150px;
-  height: 40px;
-  border-radius: 10px;
-  background-color: lightgrey;
-  cursor: pointer;
-  font-size: 24px;
-  font-weight: 600;
-  margin: 0 0.5em;
-}
-
-.navbar-links {
-  text-decoration: none;
-}
-
-/* Landing Page Styling */
-
-.landing-page {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  height: 100vh;
-  padding-top: 300px;
-}
-
-.landing-page h1 {
-  font-size: 60px;
-}
-
-.lp-both-containers {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  height: 30vh;
-}
-
-.lp-left-container {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  flex-direction: column;
-  width: 50%;
-}
-
-.lp-right-container {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  flex-direction: column;
-  width: 50%;
-}
-
-.lp-right-container p {
-  font-size: 20px;
-}
-
-/* Login Page Styling */
-.login-page {
-  margin: 30px;
-  padding: 20px;
-}
-
-.login-page .back-button{
-  width: 150px;
-  height: 40px;
-  border-radius: 10px;
-  background-color: lightgrey;
-  cursor: pointer;
-  font-size: 24px;
-  font-weight: 600;
-  margin: 0 0.5em;
-}
-
-.login-page .back-button-link {
-  color: black;
-  text-decoration: none;
-}
-
-/* Form Styling */
-.form-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
-
-.base-form {
-  background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent white */
-  padding: 30px;
-  border-radius: 10px;
-  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.2);
-  width: 300px; /* Fixed width */
-  text-align: center;
-}
-
-.base-form h2 {
-  margin-bottom: 20px;
-  color: black;
-  font-size: 32px;
-}
-
-.form-group {
-  margin-bottom: 15px;
-  text-align: left;
-}
-
-.form-group label {
-  display: block;
-  margin-bottom: 5px;
-  font-size: 24px;
+h2 {
+  font-size: 56px;
   font-weight: bold;
+  text-align: center;
+  background: linear-gradient(90deg, #17486c, #738348, #fbde65);
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: flow 5s ease-in-out infinite;
 }
 
-.form-group input {
-  padding: 10px;
-  width: 100%;
-  font-size: 16px;
-  border-radius: 5px;
-  box-sizing: border-box;
-}
-
-.form-group input:focus {
-  border-color: #007bff; /* Focus border color */
-  outline: none; /* Remove default outline */
-}
-
-.submit-button {
-  width: 100%;
-  padding: 10px;
-  background-color: #007bff; /* Button color */
-  color: white;
-  border: none;
-  border-radius: 5px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.submit-button:hover {
-  background-color: #0056b3; /* Darker button color on hover */
-}
-
-.login-form button {
-  width: 100%;
-  padding: 10px;
-  background-color:#007bff;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-/* Page Styling */
-
-.page-styling {
-  width: 70%;
-  margin: auto;
-  min-height: 100vh;
-  padding-left: 40px;
-}
-
-/* Footer Styling */
-
-.footer {
-  width: 70%;
-  margin: auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 20px;
-  background-color: white;
-  color: black;
+@keyframes flow {
+  0% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 0%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
 }
