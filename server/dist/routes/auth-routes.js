@@ -38,11 +38,6 @@ export const signup = async (req, res) => {
         const foundUser = await User.findOne({
             where: { username },
         });
-        /*
-            User.create()
-                .then()
-                .catch()
-                */
         // Check if the user exists
         if (foundUser) {
             return res.status(401).json({ message: 'Creation failed, Username already exists' }); // Message is custom key in JSON object (part of the response body)

@@ -4,8 +4,6 @@ import { useState, useEffect, useLayoutEffect } from 'react';
 import { retrieveTotalIncome } from '../api/incomeAPI';
 import { retrieveTotalExpenses } from '../api/expensesAPI';
 import './Cashflow.css';
-// import ErrorPage from './ErrorPage';
-
 
 const Cashflow = () => {
   const [error, setError] = useState(false); 
@@ -19,8 +17,7 @@ const Cashflow = () => {
       fetchTotalExpenses();
   }, []);
   
-  // trigger function to fetch income and expenses
-  // fetch income from the database - set the state variable - handle errors
+  // Fetch income and expenses, set the state variable, handle errors
   const fetchTotalIncome = async () => {
       try {
           const data = await retrieveTotalIncome(); 
@@ -33,7 +30,7 @@ const Cashflow = () => {
       }
   };
 
-  // fetch expenses from the database - set the state variable - handle errors
+  // Fetch expenses from the database, set the state variable, handle errors
   const fetchTotalExpenses = async () => {
       try {
           const data = await retrieveTotalExpenses(); 
@@ -45,17 +42,19 @@ const Cashflow = () => {
       }
   };
 
+  // Format currency
   const formatCurrency = (amount: number) => {
     return `$${amount.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
 };
 
-  // trigger function to calculate cashflow - set the state variable
+  // Calculate cashflow, set the state variable
   useEffect(() => {
       const calculatedCashflow = totalIncome - totalExpenses;
       setCashflow(calculatedCashflow);
       localStorage.setItem('cashflow', String (calculatedCashflow));
   }, [totalIncome, totalExpenses]);
   
+  // Check if user is logged in
   const checkLogin = () => {
     if(auth.loggedIn()) {
       setLoginCheck(true);

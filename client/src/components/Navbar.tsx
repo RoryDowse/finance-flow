@@ -43,14 +43,6 @@ const Navbar = () => {
                         Home
                       </Link>
                     </li>
-                    {
-                    /* <li className="nav-item">
-                      <Link className="nav-link" to='/expenses'>
-                        Expenses
-                      </Link>
-                    </li> */ 
-                    
-                    /* Uncomment when expenses page is ready */}
                     <li className="nav-item text-center">
                       <Link className="nav-link navbar-color" to='/investment'>
                         Investment
