@@ -17,8 +17,10 @@ const CurrencyExchangeCard = ({ years, currencyType, convertedAmount}: CurrencyE
             <p className="currency-exchange-title">Year {years !== null ? years : 'N/A'}</p>
             <p className="currency-exchange-type">Currency Type:</p>
             <p>{currencyType}</p>
-            <p className="currency-exchange-amount">Exchange Amount:</p> 
-            <p>{formattedConvertedAmount}</p>
+            <div className="return-display">
+                <p className="currency-exchange-amount">Exchange Amount:</p> 
+                <p>{formattedConvertedAmount}</p>
+            </div>
         </div>
     );
 };

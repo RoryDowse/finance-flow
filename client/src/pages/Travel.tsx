@@ -20,9 +20,7 @@ const Travel: React.FC = () => {
 
     const searchCurrencyType = async (baseCurrency: string, conversionCurrency: string) => {
         try {
-            const response = await fetch(
-                `https://v6.exchangerate-api.com/v6/
-                ${exchangeKey}/latest/${baseCurrency}`, {
+            const response = await fetch(`https://v6.exchangerate-api.com/v6/${exchangeKey}/latest/${baseCurrency}`, {
                 headers: {
                     Authorization: `Bearer ${exchangeKey}`,
                   },
