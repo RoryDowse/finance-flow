@@ -30,6 +30,7 @@ export const login = async (req, res) => {
     // Send the token to the client for local storage (or other purposes)
     return res.json({ token });
 };
+// Creates a user based on the username recieved
 export const signup = async (req, res) => {
     // Destructure the username and password from the request body (the data sent by the client on the form submission)
     const { username } = req.body;
@@ -62,6 +63,7 @@ export const signup = async (req, res) => {
 };
 const router = Router();
 // POST /login - Login a user
+// POST /signup - Create a user
 router.post('/login', login);
 router.post('/signup', signup);
 export default router;

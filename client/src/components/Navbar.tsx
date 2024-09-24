@@ -6,9 +6,14 @@ import './Navbar.css';
 import Logo from '../assets/images/financeflow-logo.png'
 
 const Navbar = () => {
+
+  // Stateful Variable
   const [loginCheck, setLoginCheck] = useState(false);
+
+  // Incorporate the useNavigate function from 'react-router-dom'
   const navigate = useNavigate();
 
+  // Makes sure the user is authorized and logs them into the home page of the website
   const checkLogin = () => {
     if (auth.loggedIn()) {
       setLoginCheck(true);
@@ -16,6 +21,7 @@ const Navbar = () => {
     }
   };
 
+  // On load, checks to see if the user is authenticated and should be logged in
   useEffect(() => {
     checkLogin();
   }, [loginCheck]);

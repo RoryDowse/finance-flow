@@ -1,3 +1,4 @@
+/* Global Page Styling */
 .travel-page {
   display: flex;
   flex-direction: column;
@@ -43,6 +44,7 @@
   align-items: center;
 }
 
+/* Input Fields/Search Button Styling */
 .sidebar {
   flex-basis: 20%;
   padding: 20px;
@@ -68,6 +70,7 @@
   align-items: center;
 }
 
+/* Main Cards Styling */
 .main-content {
   flex-basis: 80%;
   padding: 20px;
@@ -82,6 +85,8 @@
   justify-content: center;
   align-items: center;
 }
+
+/* Responsive Styling */
 
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {

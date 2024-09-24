@@ -25,13 +25,13 @@ class AuthService {
     return loggedUser;
   }
 
-  // Sets the token in local storage and reassigns the users page to the "Board" page
+  // Sets the token in local storage and reassigns the users page to the "Home" page
   login(idToken: string) {
     localStorage.setItem('id_token', idToken);
     window.location.assign('/');
   }
 
-  // Removes the token from local storage and returns the user to the "Board" page
+  // Removes the token from local storage and returns the user to the "Home" page
   logout() {
     localStorage.removeItem('id_token');
     window.location.assign('/');

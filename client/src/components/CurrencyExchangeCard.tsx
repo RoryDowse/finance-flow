@@ -7,7 +7,7 @@ interface CurrencyExchangeCardProps {
 }
 
 const CurrencyExchangeCard = ({ years, currencyType, convertedAmount}: CurrencyExchangeCardProps) => {
-    // Format totalReturn with commas and two decimal places
+    // Format the cashflow converted to whatever the target currency is
     const formattedConvertedAmount = convertedAmount !== null
         ? convertedAmount.toLocaleString('en-US')
         : 'N/A';

@@ -35,7 +35,7 @@ export const login = async (req: Request, res: Response) => {
   return res.json({ token });
 };
 
-
+// Creates a user based on the username recieved
 export const signup = async (req: Request, res: Response) => {
   // Destructure the username and password from the request body (the data sent by the client on the form submission)
   const { username } = req.body;
@@ -72,6 +72,7 @@ export const signup = async (req: Request, res: Response) => {
 const router = Router();
 
 // POST /login - Login a user
+// POST /signup - Create a user
 router.post('/login', login);
 router.post('/signup', signup);
 

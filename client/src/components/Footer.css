@@ -44,6 +44,8 @@
   transform: translateY(-3px); /* Consistent hover effect */
 }
 
+/* Responsive Styling */
+
 @media only screen and (max-width: 600px) {
   .footer-content {
     flex-direction: column; /* Stack links vertically */

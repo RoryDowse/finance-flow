@@ -1,5 +1,6 @@
 import './Footer.css';
 
+// Basic footer that shows both cooperators and links to our github
 const Footer = () => {
     return (
           <div className="footer webpage-background">

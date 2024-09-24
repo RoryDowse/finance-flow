@@ -6,11 +6,11 @@ interface CurrencyDisplayProps {
   currentCashflow: number | null;
 }
 
+// Creates a card prop that displays the users base currency type and current cashflow
 const CurrencyDisplay: React.FC<CurrencyDisplayProps> = ({ 
   baseCurrencyType, 
   currentCashflow, 
-}) => {
-  // Render component and handle cases where values are null or undefined
+  }) => {
   return (
     <div className="financial-item-container">
       <h3 className="currency-display">Currency Information</h3>
