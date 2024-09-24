@@ -6,7 +6,6 @@ import { Link } from "react-router-dom";
 // Import css file for styling
 import './Form.css';
 
-
 const Login: React.FC = () => {
 
   // Stateful variable to hold the users Login information
@@ -63,7 +62,7 @@ const Login: React.FC = () => {
                 onChange={handleChange}
                 />
               </div>
-              <button className="login-button" type='submit'>Submit Form</button>
+              <button className="login-button" type='submit'>Submit</button>
             </form>
             {errorMessage && <p className="error-message">{errorMessage}</p>}
         </div>

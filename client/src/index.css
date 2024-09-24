@@ -16,7 +16,7 @@
   text-align: right;
 }
 
-/* Main Background Styling */ 
+/* Main Background Styling */
 .webpage-background {
   background: linear-gradient(90deg, #638475, #17486c);
   color: white;
@@ -49,6 +49,14 @@ h1 {
   }
 }
 
+h2 {
+  margin: 0px;
+  padding: 20px 0px;
+  font-size: 36px;
+  font-weight: bold;
+  text-align: center;
+}
+
 /* Global Submit Button Styling */
 .submit-button {
   width: 100%;
@@ -69,23 +77,21 @@ h1 {
 /* Global Responsive Styling */
 
 @media only screen and (max-width: 600px) {
-  
   .webpage-background h1 {
-      font-size: 48px; 
-      padding: 10px; 
+    font-size: 52px;
+    padding: 40px 0;
   }
 }
 
 @media only screen and (min-width: 601px) and (max-width: 768px) {
-  
   .webpage-background h1 {
-      font-size: 64px; 
+    font-size: 72px;
+    padding: 40px;
   }
 }
 
 @media only screen and (min-width: 769px) {
-  
   .webpage-background h1 {
-      font-size: 80px; 
+    font-size: 80px;
   }
 }
