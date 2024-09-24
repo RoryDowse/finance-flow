@@ -16,10 +16,13 @@
   text-align: right;
 }
 
-body {
+/* Main Background Styling */ 
+.webpage-background {
   background: linear-gradient(90deg, #638475, #17486c);
   color: white;
 }
+
+/* Global h1 Styling */
 
 h1 {
   margin: 0px;
@@ -46,6 +49,7 @@ h1 {
   }
 }
 
+/* Global Submit Button Styling */
 .submit-button {
   width: 100%;
   padding: 10px;
@@ -61,6 +65,8 @@ h1 {
 .submit-button:hover {
   background-color: #17496cde;
 }
+
+/* Global Responsive Styling */
 
 @media only screen and (max-width: 600px) {
   

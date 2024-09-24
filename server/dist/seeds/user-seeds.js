@@ -3,7 +3,7 @@ export const seedUsers = async () => {
     await User.bulkCreate([
         {
             username: 'testuser1',
-            password: 'hashedpassword1', // Hash the password if necessary
+            password: 'hashedpassword1',
         },
         {
             username: 'testuser2',

@@ -1,3 +1,4 @@
+import Footer from '../components/Footer';
 import './AboutPage.css';
 
 interface CardProps {
@@ -14,7 +15,7 @@ interface CardProps {
 
 const About = () => {
     return (
-        <div>
+        <div className="webpage-background">
             <h2 className="text-center about-h2">About</h2>
             <div className="about-info">
                 <Card>
@@ -67,6 +68,7 @@ const About = () => {
                     </div>
                 </Card>
             </div>
+            <Footer />
         </div>
     );
 };

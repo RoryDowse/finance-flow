@@ -4,6 +4,7 @@ import { useState, useEffect, useLayoutEffect } from 'react';
 import { retrieveTotalIncome } from '../api/incomeAPI';
 import { retrieveTotalExpenses } from '../api/expensesAPI';
 import './Cashflow.css';
+import Footer from '../components/Footer';
 // import ErrorPage from './ErrorPage';
 
 
@@ -77,7 +78,7 @@ const Cashflow = () => {
         <div>
         </div>
       ) : (
-        <div>
+        <div className="webpage-background">
           <h2 className="text-center">Cashflow</h2>
           <div className="icon-text">
             <i className="fas fa-calculator"></i>
@@ -101,6 +102,7 @@ const Cashflow = () => {
               <p className="cashflow">{formatCurrency(cashflow)}</p>
             </div>
         </div>
+        <Footer />
       </div>
         )
     }

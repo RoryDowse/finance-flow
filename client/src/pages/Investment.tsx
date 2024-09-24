@@ -4,6 +4,7 @@ import { Projection } from '../interfaces/ProjectionInterface';
 import StockDisplay from '../components/StockDisplay';
 import InvestmentProjectionCard from '../components/InvestmentProjectionCard';
 import './Investment.css';
+import Footer from '../components/Footer.tsx';
 
 // Get API Key and Base URL from environment variables
 const API_KEY = import.meta.env.VITE_API_KEY;
@@ -158,7 +159,8 @@ const handleTickerSubmit = (event: React.FormEvent<HTMLFormElement>) => {
 
  // Render the component UI
  return (
-    <div className="investment-page">
+  <div>
+    <div className="investment-page webpage-background">
       <h2 className="text-center">Investment</h2>
       <i className="fas fa-chart-bar"></i>
       <p className="description-1">Enter a ticker symbol to get projections for the next 1, 3, 5, and 10 years based on cashflow</p>
@@ -206,6 +208,8 @@ const handleTickerSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         </section>
       </div>
     </div>
+    <Footer />
+  </div>
   );  
 };
 

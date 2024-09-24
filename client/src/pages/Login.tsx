@@ -1,6 +1,6 @@
 import React, { useState, FormEvent, ChangeEvent } from "react";
 import Auth from '../utils/auth';
-import { login } from "../api/authAPI_temp";
+import { login } from "../api/authAPI";
 import { Link } from "react-router-dom";
 
 // Import css file for styling
