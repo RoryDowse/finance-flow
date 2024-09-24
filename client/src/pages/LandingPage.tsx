@@ -18,7 +18,7 @@ const LandingPage = () => {
                 <section className="lp-left-container">
                     <h2 className="catch-phrase">"Invest it, or travel with it"</h2>
                     <ul>
-                        <li>Input income and expenses for a detailed cashflow analysis.</li>
+                        <li>View income and expenses for a detailed cashflow analysis.</li>
                         <li>Explore the stock market to visualize data and make informed investment decisions.</li>
                         <li>Navigate an intuitive layout for easy financial management.</li>
                     </ul> 
