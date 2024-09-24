@@ -4,6 +4,7 @@ import { useState, useEffect, useLayoutEffect } from 'react';
 import { retrieveTotalIncome } from '../api/incomeAPI';
 import { retrieveTotalExpenses } from '../api/expensesAPI';
 import './Cashflow.css';
+import Footer from '../components/Footer';
 
 const Cashflow = () => {
   const [error, setError] = useState(false); 
