@@ -1,5 +1,3 @@
-/* Navbar Styling */
-
 .navbar-financeflow-logo {
   width: 30px;
   height: 30px;
@@ -18,7 +16,7 @@
 }
 
 .navbar-light .navbar-toggler {
-  background-color: #638475; /* Change to your desired color */
+  background-color: #638475;
 }
 
 .hamburger-logout-button {

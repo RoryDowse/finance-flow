@@ -10,16 +10,11 @@ import {
 
 const router = express.Router();
 
-// Define the routes for income
-// Route for total income
-router.get('/total', getTotalIncome); // should this be retrieveTotalIncome? no
+router.get('/total', getTotalIncome);       // Route for total income
 router.get('/', getAllIncome);              // Get all income entries
 router.get('/:id', getIncomeById);          // Get a specific income entry by ID
 router.post('/', createIncome);             // Create a new income entry
 router.put('/:id', updateIncome);           // Update an existing income entry by ID
 router.delete('/:id', deleteIncome);        // Delete an income entry by ID
-
-
-
 
 export { router as incomeRouter };

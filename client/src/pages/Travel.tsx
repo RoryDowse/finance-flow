@@ -81,12 +81,12 @@ const Travel: React.FC = () => {
     return (
         <div>
             <div className="travel-page webpage-background">
-                <i className="fas fa-chart-bar" style={{ color: '#F0544F' }}></i>
+                <i className="fas fa-chart-bar travel-i travel-i-first"></i>
                 <p className="description-1">Enter your Base Currency and Target Currency to see Cashflow</p>
-                <i className="fas fa-calendar-alt" style={{ color: '#F0544F' }}></i>
+                <i className="fas fa-calendar-alt travel-i"></i>
                 <p className="description-2">The results are based on up-to-date currency exchange rates</p>
-                <i className="fas fa-exclamation-triangle" style={{ color: '#F0544F' }}></i> 
-                <p className="description-2">You will recieve 1, 3, 5 and 10 year projections of the target currency based on your cashflow</p>
+                <i className="fas fa-exclamation-triangle travel-i"></i> 
+                <p className="description-2">You will receive 1, 3, 5 and 10 year projections of the target currency based on your cashflow</p>
                 <h2 className="text-center">Currency Exchange Rates</h2>
                 <div className="content">
                     <aside className="sidebar">

@@ -10,16 +10,14 @@ const API_KEY = import.meta.env.VITE_API_KEY;
 const BASE_URL = import.meta.env.VITE_BASE_URL;
 
 const Investment = () => {
-// State variables: ticker, loading status, stock data, projections, and error message
+// State variables: ticker, loading status, stock data, projections, close prices, and error message
 const [ticker, setTicker] = useState<string>('IBM'); // default ticker is IBM
 const [isLoading, setIsLoading] = useState<boolean>(false);
 const [stockData, setStockData] = useState<StockData | null>(null);
 const [projections, setProjections] = useState<Projection[]>([]);
-const [error, setError] = useState<string | null>(null);
-
 const [recentClosePrice, setRecentClosePrice] = useState<number | null>(null);
 const [recentTenYearsAgoClose, setRecentTenYearsAgoClose] = useState<number | null>(null);
-
+const [error, setError] = useState<string | null>(null);
 
 // Fetch stock data from the API
 const fetchStockData = async function () {
@@ -115,14 +113,13 @@ const calculateProjections = () => {
       return;
     }
 
-      setRecentClosePrice(recentClosePrice);
-      setRecentTenYearsAgoClose(recentTenYearsAgoClose);
+  setRecentClosePrice(recentClosePrice);
+  setRecentTenYearsAgoClose(recentTenYearsAgoClose);
   
-
   // Calculate the average annual return over the past ten years (Compound Annual Growth Rate)
   const averageAnnualReturn = (Math.pow(recentClosePrice / recentTenYearsAgoClose, 1 / 10) -1) * 100;
 
-    // Assume an initial investment amount (to be adjusted later)
+  // Get initial investment (cashflow) amount from local storage
   const initialInvestment = parseInt(localStorage.getItem('cashflow') ?? '0');
 
   // Calculate projections for the next 1, 3, 5, and 10 years
@@ -141,8 +138,6 @@ const calculateProjections = () => {
 // Trigger the calculation of projections whenever stock data change
 useEffect(() => {
     calculateProjections();
-    console.log("stockData", stockData); // Log the stock data
-    console.log("projections", projections); // Log the projections
 }, [stockData]); // Run whenever stock data changes
 
 // Update ticker state on input change
@@ -160,11 +155,11 @@ const handleTickerSubmit = (event: React.FormEvent<HTMLFormElement>) => {
  return (
     <div className="investment-page">
       <h2 className="text-center">Investment</h2>
-      <i className="fas fa-chart-bar"></i>
+      <i className="fas fa-chart-bar investment-i investment-i-first"></i>
       <p className="description-1">Enter a ticker symbol to get projections for the next 1, 3, 5, and 10 years based on cashflow</p>
-      <i className="fas fa-calendar-alt"></i>
+      <i className="fas fa-calendar-alt investment-i"></i>
       <p className="description-2">The projections are made on historical stock data from the past 10 years</p>
-      <i className="fas fa-exclamation-triangle"></i> 
+      <i className="fas fa-exclamation-triangle investment-i"></i> 
       <p className="description-2">Past performance is not indicative of future outcomes</p>
       <div className="content">
         <aside className="sidebar">
