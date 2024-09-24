@@ -13,6 +13,9 @@ const Login: React.FC = () => {
       username: '',
       password: ''
     });
+
+  // Stateful variable to display an error message when login credentials are incorrect
+  const [errorMessage, setErrorMessage] = useState('');
   
   // Handles the change for when the user types in either the username or password fields
   const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
@@ -29,8 +32,9 @@ const Login: React.FC = () => {
     try {
       const data = await login(loginData);
       Auth.login(data.token);
+      setErrorMessage('');
     } catch (err) {
-      console.error('Failed to login', err);
+      setErrorMessage('Invalid username or password. Please try again.');
     }
   };
     
@@ -60,6 +64,7 @@ const Login: React.FC = () => {
               </div>
               <button className="login-button" type='submit'>Submit</button>
             </form>
+            {errorMessage && <p className="error-message">{errorMessage}</p>}
         </div>
     </div>
   );

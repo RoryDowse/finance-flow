@@ -4,7 +4,7 @@ import Card from '../components/AboutCard';
 
 const About = () => {
     return (
-        <div className="webpage-background">
+        <div className="webpage-background about-page">
             <h2 className="text-center about-h2">About</h2>
             <div className="about-info">
                 <Card>
