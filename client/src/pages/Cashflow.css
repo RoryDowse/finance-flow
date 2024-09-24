@@ -1,10 +1,11 @@
-i {
+.cashflow-i {
+  margin-bottom: 15px;
   color: #f0544f;
+  font-size: 20px;
 }
 
-.icon-text {
-  color: white;
-  font-size: 20px;
+.cashflow-i-first {
+  margin-top: 30px;
 }
 
 .element-1,

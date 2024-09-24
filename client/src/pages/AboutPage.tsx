@@ -1,17 +1,6 @@
 import Footer from '../components/Footer';
 import './AboutPage.css';
-
-interface CardProps {
-    children: React.ReactNode;
-  }
-  
-  const Card = ({ children }: CardProps) => {
-    return (
-      <div className="card">
-        {children}
-      </div>
-    );
-  };
+import Card from '../components/AboutCard';
 
 const About = () => {
     return (

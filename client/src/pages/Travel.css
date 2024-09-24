@@ -1,21 +1,18 @@
 /* Global Page Styling */
 .travel-page {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
-/* Information Styling */
-i {
+.travel-i {
   margin-bottom: 15px;
-  color: #17486c;
+  color: #f0544f;
   font-size: 20px;
 }
 
-i:nth-of-type(1) {
-  margin-top: 50px;
-  margin-bottom: 15px;
-  color: #17486c;
+.travel-i-first {
+  margin-top: 30px;
 }
 
 .description-1 {
@@ -40,17 +37,16 @@ i:nth-of-type(1) {
   margin-bottom: 60px;
 }
 
-/* Main Content Styling */
 .content {
   display: flex;
-  width: 100%; 
+  width: 100%;
   /* justify-content: center; */
   align-items: center;
 }
 
 /* Input Fields/Search Button Styling */
 .sidebar {
-  flex-basis: 20%; 
+  flex-basis: 20%;
   padding: 20px;
   border-right: 1px solid #ccc;
 }
@@ -76,7 +72,7 @@ i:nth-of-type(1) {
 
 /* Main Cards Styling */
 .main-content {
-  flex-basis: 80%; 
+  flex-basis: 80%;
   padding: 20px;
   justify-content: center;
   align-items: center;

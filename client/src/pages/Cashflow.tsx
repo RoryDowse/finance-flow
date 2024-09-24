@@ -4,9 +4,6 @@ import { useState, useEffect, useLayoutEffect } from 'react';
 import { retrieveTotalIncome } from '../api/incomeAPI';
 import { retrieveTotalExpenses } from '../api/expensesAPI';
 import './Cashflow.css';
-import Footer from '../components/Footer';
-// import ErrorPage from './ErrorPage';
-
 
 const Cashflow = () => {
   const [error, setError] = useState(false); 
@@ -20,8 +17,7 @@ const Cashflow = () => {
       fetchTotalExpenses();
   }, []);
   
-  // trigger function to fetch income and expenses
-  // fetch income from the database - set the state variable - handle errors
+  // Fetch income and expenses, set the state variable, handle errors
   const fetchTotalIncome = async () => {
       try {
           const data = await retrieveTotalIncome(); 
@@ -34,7 +30,7 @@ const Cashflow = () => {
       }
   };
 
-  // fetch expenses from the database - set the state variable - handle errors
+  // Fetch expenses from the database, set the state variable, handle errors
   const fetchTotalExpenses = async () => {
       try {
           const data = await retrieveTotalExpenses(); 
@@ -46,17 +42,19 @@ const Cashflow = () => {
       }
   };
 
+  // Format currency
   const formatCurrency = (amount: number) => {
     return `$${amount.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
 };
 
-  // trigger function to calculate cashflow - set the state variable
+  // Calculate cashflow, set the state variable
   useEffect(() => {
       const calculatedCashflow = totalIncome - totalExpenses;
       setCashflow(calculatedCashflow);
       localStorage.setItem('cashflow', String (calculatedCashflow));
   }, [totalIncome, totalExpenses]);
   
+  // Check if user is logged in
   const checkLogin = () => {
     if(auth.loggedIn()) {
       setLoginCheck(true);
@@ -81,15 +79,15 @@ const Cashflow = () => {
         <div className="webpage-background">
           <h2 className="text-center">Cashflow</h2>
           <div className="icon-text">
-            <i className="fas fa-calculator"></i>
+            <i className="fas fa-calculator cashflow-i cashflow-i-first"></i>
             <p className="element-1">Cashflow is the difference between the total income and the total expenses</p> 
           </div>
           <div className="icon-text">
-            <i className="fas fa-dollar-sign"></i>
+            <i className="fas fa-dollar-sign cashflow-i"></i>
             <p className="element-2">Prioritize income and prioritize expenses to boost cashflow</p>
           </div>
           <div className="icon-text">
-            <i className="fas fa-briefcase"></i>
+            <i className="fas fa-briefcase cashflow-i"></i>
             <p className="element-3">Use cashflow to make investment and travel decisions</p>
           </div>
           <div className="cashflow-container">
