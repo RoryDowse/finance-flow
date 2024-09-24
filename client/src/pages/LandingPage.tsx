@@ -29,7 +29,7 @@ const LandingPage = () => {
                 </section>
             </div>
             <div className="footer-white footer">
-                <p>Created By</p>
+                <p>Created By:</p>
                 <div className="footer-content">
                     <div className="footer-link-container">
                         <a className="footer-link" href="https://github.com/RoryDowse" target="_blank" rel="noopener noreferrer">Rory Dowse</a>
