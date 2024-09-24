@@ -5,14 +5,12 @@ import auth from '../utils/auth';
 import './Navbar.css';
 import Logo from '../assets/images/financeflow-logo.png'
 
-
 const Navbar = () => {
-
-  const [ loginCheck, setLoginCheck ] = useState(false);
+  const [loginCheck, setLoginCheck] = useState(false);
   const navigate = useNavigate();
 
   const checkLogin = () => {
-    if(auth.loggedIn()) {
+    if (auth.loggedIn()) {
       setLoginCheck(true);
       navigate('/home');
     }
@@ -20,7 +18,7 @@ const Navbar = () => {
 
   useEffect(() => {
     checkLogin();
-  }, [loginCheck])
+  }, [loginCheck]);
 
   return (
     <div>

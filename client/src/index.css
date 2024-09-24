@@ -16,14 +16,7 @@
   text-align: right;
 }
 
-/* Page Styling */
-
-/* .page-styling {
-  margin: auto;
-  min-height: 80vh;
-} */
-
-.webpage-background {
+body {
   background: linear-gradient(90deg, #638475, #17486c);
   color: white;
 }

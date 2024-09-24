@@ -5,22 +5,43 @@
   padding: 20px;
 }
 
+i {
+  margin-bottom: 15px;
+  color: #f0544f;
+  font-size: 20px;
+}
+
+i:nth-of-type(1) {
+  margin-top: 50px;
+  margin-bottom: 15px;
+}
+
+.description-1,
+.description-2,
+.description-3 {
+  font-size: 20px;
+  text-align: center;
+  margin-top: 0px;
+  padding: 0 10%;
+  margin-bottom: 60px;
+}
+
 .content {
   display: flex;
-  width: 100%; /* Full width for the content section */
-  justify-content: center;
+  width: 100%;
   align-items: center;
 }
 
 .sidebar {
-  flex-basis: 20%; /* Set the width of the sidebar */
+  flex-basis: 20%; /* Sidebar takes up 20% of the available space */
   padding: 20px;
-  border-right: 1px solid #ccc; /* Optional: Add a border on the right to separate the sidebar */
+  border-right: 1px solid #ccc; /* Add a border to the right side of the sidebar */
 }
 
 .ticker-search-text {
   font-size: 28px;
   margin-bottom: 20px;
+  margin-top: 0px;
 }
 
 .ticker-input {
@@ -28,6 +49,23 @@
   padding: 10px;
   font-size: 16px;
   box-sizing: border-box;
+  margin-bottom: 10px;
+}
+
+.submit-button {
+  width: 100%;
+  padding: 10px;
+  background-color: #17486c;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submit-button:hover {
+  background-color: #17496cde;
 }
 
 .main-content {

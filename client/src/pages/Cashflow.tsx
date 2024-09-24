@@ -79,13 +79,27 @@ const Cashflow = () => {
       ) : (
         <div>
           <h2 className="text-center">Cashflow</h2>
+          <div className="icon-text">
+            <i className="fas fa-calculator"></i>
+            <p className="element-1">Cashflow is the difference between the total income and the total expenses</p> 
+          </div>
+          <div className="icon-text">
+            <i className="fas fa-dollar-sign"></i>
+            <p className="element-2">Prioritize income and prioritize expenses to boost cashflow</p>
+          </div>
+          <div className="icon-text">
+            <i className="fas fa-briefcase"></i>
+            <p className="element-3">Use cashflow to make investment and travel decisions</p>
+          </div>
           <div className="cashflow-container">
             <p className="total-income-title">Total Income:</p>
             <p className="total-income">{formatCurrency(totalIncome)}</p>
             <p className="total-expenses-title">Total Expenses:</p> 
             <p className="total-expenses">{formatCurrency(totalExpenses)}</p>
-            <p className="cashflow-title">Cashflow:</p>
-            <p className="cashflow">{formatCurrency(cashflow)}</p>
+            <div className="cashflow-display">
+              <p className="cashflow-title">Cashflow:</p>
+              <p className="cashflow">{formatCurrency(cashflow)}</p>
+            </div>
         </div>
       </div>
         )

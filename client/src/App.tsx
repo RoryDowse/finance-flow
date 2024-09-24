@@ -5,7 +5,7 @@ function App() {
   return (
     <>
       <Navbar />
-      <main className="page-styling">
+      <main>
         <Outlet />
       </main>
     </>
