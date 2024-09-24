@@ -14,7 +14,6 @@ Deployed Link: https://finance-flow-f2zu.onrender.com
 - [Usage](#usage)
 - [License](#license)
 - [Contributing](#contributing)
-- [Tests](#tests)
 - [Questions](#questions)
 
 ## Installation
@@ -151,8 +150,6 @@ This project is licensed under the MIT license.
 - Alistair Rowden
 - Luis Sanchez
 - Kyle Vance
-
-## Tests
 
 ## Questions
 
