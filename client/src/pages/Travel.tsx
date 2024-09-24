@@ -20,7 +20,9 @@ const Travel: React.FC = () => {
 
     const searchCurrencyType = async (baseCurrency: string, conversionCurrency: string) => {
         try {
-            const response = await fetch(`https://v6.exchangerate-api.com/v6/${exchangeKey}/latest/${baseCurrency}`, {
+            const response = await fetch(
+                `https://v6.exchangerate-api.com/v6/
+                ${exchangeKey}/latest/${baseCurrency}`, {
                 headers: {
                     Authorization: `Bearer ${exchangeKey}`,
                   },
@@ -38,7 +40,7 @@ const Travel: React.FC = () => {
                     return {
                         years: years, 
                         currencyType: conversionCurrency, 
-                        convertedAmount: calculatedValue 
+                        convertedAmount: calculatedValue.toFixed(0)
                     };
                 } else {
                     return {
@@ -65,10 +67,6 @@ const Travel: React.FC = () => {
         setConversionCurrency(event.target.value.toUpperCase());
     };
 
-    const handleCashflowInput = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setAmountToConvert(parseInt(event.target.value));
-    };
-
     // Handles submission for search field
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
@@ -79,7 +77,7 @@ const Travel: React.FC = () => {
     };
 
     useEffect(() => {
-        setAmountToConvert(6045);
+        setAmountToConvert(parseInt(localStorage.getItem('cashflow') ?? '0'));
     }, []);
 
     return (
@@ -88,7 +86,7 @@ const Travel: React.FC = () => {
                 <i className="fas fa-chart-bar" style={{ color: '#F0544F' }}></i>
                 <p className="description-1">Enter your Base Currency and Target Currency to see Cashflow</p>
                 <i className="fas fa-calendar-alt" style={{ color: '#F0544F' }}></i>
-                <p className="description-2">The results are based on real, updated currency exchange rates</p>
+                <p className="description-2">The results are based on up-to-date currency exchange rates</p>
                 <i className="fas fa-exclamation-triangle" style={{ color: '#F0544F' }}></i> 
                 <p className="description-2">You will recieve 1, 3, 5 and 10 year projections of the target currency based on your cashflow</p>
                 <h2 className="text-center">Currency Exchange Rates</h2>
@@ -111,14 +109,6 @@ const Travel: React.FC = () => {
                                 value={conversionCurrency}
                                 onChange={handleConversionCurrencyInput}
                                 placeholder="EUR"
-                                className="exchange-input"
-                            />
-                            <h3 className="exchange-search-text text-center">Your Cashflow:</h3>
-                            <input
-                                type="text"
-                                name="cashflow"
-                                value={amountToConvert}
-                                onChange={handleCashflowInput}
                                 className="exchange-input"
                             />
                             <button className="search-button" type="submit">Search</button>
