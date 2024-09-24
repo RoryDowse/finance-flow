@@ -58,7 +58,7 @@ const calculateProjections = () => {
 
   // Get relevant dates
   const today = new Date();
-  const yesterday = new Date(); // fetch today's date or use yesterday's date if close not available
+  const yesterday = new Date();
   yesterday.setDate(today.getDate() - 1);
   const twoDaysAgo = new Date();
   twoDaysAgo.setDate(today.getDate() - 2);
@@ -123,7 +123,7 @@ const calculateProjections = () => {
   const averageAnnualReturn = (Math.pow(recentClosePrice / recentTenYearsAgoClose, 1 / 10) -1) * 100;
 
     // Assume an initial investment amount (to be adjusted later)
-  const initialInvestment = parseInt(localStorage.getItem('cashflow') ?? '0'); // Replace with cashflow figure
+  const initialInvestment = parseInt(localStorage.getItem('cashflow') ?? '0');
 
   // Calculate projections for the next 1, 3, 5, and 10 years
   const projectionsArray = [1, 3, 5, 10].map(years => {
