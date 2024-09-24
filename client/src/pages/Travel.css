@@ -3,6 +3,11 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 20px;
+}
+
+.travel-h2 {
+  padding-bottom: 30px;
 }
 
 .travel-i {

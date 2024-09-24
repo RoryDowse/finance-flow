@@ -77,7 +77,7 @@ const Cashflow = () => {
         <div>
         </div>
       ) : (
-        <div className="webpage-background">
+        <div className="webpage-background cashflow-page">
           <h2 className="text-center">Cashflow</h2>
           <div className="icon-text">
             <i className="fas fa-calculator cashflow-i cashflow-i-first"></i>
