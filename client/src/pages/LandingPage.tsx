@@ -13,7 +13,7 @@ const LandingPage = () => {
             </section>
             <div className="lp-both-containers">
                 <section className="lp-left-container">
-                    <h2>"Invest it, or travel with it"</h2>
+                    <h2 className="catch-phrase">"Invest it, or travel with it"</h2>
                     <ul>
                         <li>Input income and expenses for a detailed cashflow analysis.</li>
                         <li>Explore the stock market to visualize data and make informed investment decisions.</li>

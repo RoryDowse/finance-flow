@@ -16,3 +16,14 @@
 .navbar-nav .active {
   color: red;
 }
+
+.navbar-light .navbar-toggler {
+  background-color: #638475; /* Change to your desired color */
+}
+
+.hamburger-logout-button {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
