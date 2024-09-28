@@ -32,7 +32,7 @@ const Travel: React.FC = () => {
                 throw new Error('invalid API response, make sure you are setting the correct currency types in each field');
             }
 
-            // Data recieved from the API call
+            // Data received from the API call
             const data: Currency = await response.json();
 
             // Gather the specific conversion rate for the target currency
