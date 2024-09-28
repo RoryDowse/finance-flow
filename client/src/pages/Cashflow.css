@@ -2,10 +2,17 @@
   padding: 20px;
 }
 
+.cashflow-icon-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
 .cashflow-i {
-  margin-bottom: 15px;
   color: #f0544f;
   font-size: 20px;
+  margin-bottom: 15px;
 }
 
 .cashflow-i-first {
@@ -19,7 +26,7 @@
   display: flex;
   flex-direction: column;
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 60px;
 }
 
 .element-3 {
@@ -108,11 +115,6 @@
 
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
-  .element-1,
-  .element-2,
-  .element-3 {
-    padding: 1% 10%;
-  }
   .cashflow-container {
     width: 90%;
   }
@@ -120,11 +122,6 @@
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {
-  .element-1,
-  .element-2,
-  .element-3 {
-    padding: 1% 10%;
-  }
   .cashflow-container {
     width: 70%;
   }
