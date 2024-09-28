@@ -14,6 +14,7 @@ Deployed Link: https://finance-flow-f2zu.onrender.com
 - [Usage](#usage)
 - [License](#license)
 - [Contributing](#contributing)
+- [Tests](#tests)
 - [Questions](#questions)
 
 ## Installation
@@ -150,6 +151,24 @@ This project is licensed under the MIT license.
 - Alistair Rowden
 - Luis Sanchez
 - Kyle Vance
+
+## Tests
+
+1. **Manual Testing:**
+
+   - Run your development server:
+     ```bash
+     npm start
+     ```
+   - Open your browser and navigate to `http://localhost:3001`.
+   - Test different components and functionalities:
+     - Verify navigation links and page redirections.
+     - Check that forms render correctly and validate inputs.
+
+2. **React Hooks and State Management:**
+   - Interact with the application to ensure state management and hooks (e.g., `useState`) are working properly:
+     - Test input fields to verify state updates.
+     - Confirm that validation errors are shown as expected.
 
 ## Questions
 
