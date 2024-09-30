@@ -58,7 +58,7 @@ const CreateAccount = () => {
                 onChange={handleChange}
               />
             </div>  
-            <button className="login-button"type='submit'>Submit Form</button>
+            <button className="login-button"type='submit'>Create Account</button>
           </form>
         </div>
       </div>
