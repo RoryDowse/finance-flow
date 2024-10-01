@@ -62,7 +62,7 @@ const Login: React.FC = () => {
                 onChange={handleChange}
                 />
               </div>
-              <button className="login-button" type='submit'>Submit</button>
+              <button className="login-button" type='submit'>Login</button>
             </form>
             {errorMessage && <p className="error-message">{errorMessage}</p>}
         </div>
